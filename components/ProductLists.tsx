@@ -1,14 +1,20 @@
 "use client";
 import Image from "next/image";
-import products from "../data/products";
 import ProductQuickviews from "./ProductQuickviews";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Price from "./Price";
+import axios from "axios";
+import Link from "next/link";
 
 export type Product = {
-  id: number;
+  _id: string;
   name: string;
   href: string;
+  category: string;
+  description: string;
+  searchParam: string;
+  date: string;
+  amount: number;
   price: number;
   offer: number;
   rating: number;
@@ -22,12 +28,25 @@ type ProductLists = {
   offers?: boolean | undefined;
 };
 
+export const postProductReviews = async (product: Product) => {
+  await axios.post(`/api/products/${product._id}`, {
+    reviewCount: product.reviewCount + 1,
+  });
+};
+
 export default function ProductLists({
   section,
   offers = false,
 }: ProductLists) {
   const [open, setOpen] = useState(false);
+  const [products, setProducts] = useState<Product[]>([]);
   const [product, setProduct] = useState<Product>();
+
+  useEffect(() => {
+    axios
+      .get(`/api/products?category=${section}`)
+      .then((res) => setProducts(res.data.products));
+  }, [section]);
 
   const handleSetOpen = (product: Product) => {
     setOpen(true);
@@ -46,28 +65,34 @@ export default function ProductLists({
             {section.toLocaleUpperCase()}
           </h3>
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {products[section]
-              ?.filter((product: Product) =>
-                offers ? product.offer : product.id,
+            {products
+              .filter((product: Product) =>
+                offers ? product.offer : product._id,
               )
-              ?.map((product: Product) => {
+              .map((product: Product) => {
                 return (
-                  <div
-                    key={product.id}
-                    className="group cursor-pointer"
-                    onClick={() => handleSetOpen(product)}
-                  >
+                  <div key={product._id}>
                     <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                       <Image
                         src={product.imageSrc}
                         alt={product.imageAlt}
                         width={100}
                         height={100}
-                        className="h-full w-full object-cover object-center group-hover:opacity-75"
+                        onClick={() => handleSetOpen(product)}
+                        className="cursor-pointer h-full w-full object-cover object-center group-hover:opacity-75"
                       />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-700 sm:pr-12">
-                      {product.name}
+                    <Link
+                      href={`/${section}/${product._id}`}
+                      className="hover:underline"
+                      onClick={() => postProductReviews(product)}
+                    >
+                      <h3 className="text-xl font-bold text-gray-700 sm:pr-12">
+                        {product.name} {product.date}
+                      </h3>
+                    </Link>
+                    <h3 className="text-l font-bold text-gray-500 sm:pr-12">
+                      {product.searchParam}
                     </h3>
                     <p className="mt-1 text-lg font-medium text-gray-900">
                       <Price product={product} />
@@ -78,7 +103,7 @@ export default function ProductLists({
           </div>
         </div>
       </div>
-      {product && open && (
+      {products && open && (
         <ProductQuickviews onClose={handleSetClose} product={product} />
       )}
     </>

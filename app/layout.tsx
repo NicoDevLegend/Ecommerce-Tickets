@@ -2,6 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Header from "../components/Header";
 import SearchSection from "@/components/SearchSection";
+import Providers from "@/components/Providers";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Ecommerce-Tickets",
@@ -16,9 +18,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <SearchSection />
-        <section>{children}</section>
+        <section className="min-h-screen">
+          <Providers>
+            <Header />
+            <SearchSection />
+            {children}
+          </Providers>
+        </section>
+        <section>
+          <Footer />
+        </section>
       </body>
     </html>
   );

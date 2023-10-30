@@ -1,19 +1,43 @@
+import { useEffect, useState } from "react";
 import { Product } from "./ProductLists";
 
-export default function Price({ product }: { product: Product }) {
+export default function Price({
+  product,
+  total = false,
+  quantity,
+}: {
+  product: Product | undefined;
+  total?: boolean;
+  quantity?: number;
+}) {
+  const [price, setPrice] = useState<number>(0);
+
+  useEffect(() => {
+    if (product?.offer) {
+      const priceCalc =
+        Number(
+          (product.price - (product.offer / 100) * product.price).toFixed(2),
+        ) * (quantity || 1);
+      return setPrice(priceCalc);
+    } else {
+      const priceCalc = Number(product?.price.toFixed(2)) * (quantity || 1);
+      return setPrice(priceCalc);
+    }
+  }, [product, quantity]);
+
+  if (total) {
+    return <div>{`$${price}`}</div>;
+  }
+
   return (
     <>
-      {`$${
-        product.offer
-          ? (product.price - (product.offer / 100) * product.price).toFixed(2)
-          : product.price.toFixed(2)
-      }`}{" "}
+      <span>{`$${price}`}</span>
       <span className="text-lime-600">
-        {product.offer ? `-${product.offer}%` : ""}
+        {product?.offer ? `-${product.offer}%` : ""}
       </span>
       {"  "}
       <span className="line-through">
-        {product.offer ? `$${product.price.toFixed(2)}` : ""}
+        {product?.offer ? `$${product.price.toFixed(2)}` : ""}
       </span>
     </>
   );
