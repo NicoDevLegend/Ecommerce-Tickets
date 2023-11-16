@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import CardPayment from "./CardPayment";
 
 export default function TotalPrice() {
-  const { cartProducts } = useContext(CartContext);
+  const { cartProducts, checkAvailableSeats } = useContext(CartContext);
   const [prices, setPrices] = useState([0]);
   const [totalPrice, setTotalPrice] = useState<any>([0]);
   const [isOpen, setIsOpen] = useState(false);
@@ -16,17 +16,22 @@ export default function TotalPrice() {
       if (cartProducts) {
         const prices = await Promise.all<any>(
           cartProducts.products.map(async (productId) => {
-            const products = await axios.get(`/api/products/${productId}`);
+            const products = await axios.get(
+              `/api/products/${productId.product}`,
+            );
             const product = await products?.data.products;
+            let quantity = productId.selectedSeats;
             let price = 0;
             if (product?.offer) {
-              price = Number(
-                (product.price - (product.offer / 100) * product.price).toFixed(
-                  2,
-                ),
-              );
+              price =
+                Number(
+                  (
+                    product.price -
+                    (product.offer / 100) * product.price
+                  ).toFixed(2),
+                ) * quantity;
             } else {
-              price = Number(product?.price.toFixed(2));
+              price = Number(product?.price.toFixed(2)) * quantity;
             }
             return price;
           }),
@@ -48,8 +53,13 @@ export default function TotalPrice() {
     setIsOpen(false);
   }
 
-  function openModal() {
-    setIsOpen(true);
+  async function openModal() {
+    const check = await checkAvailableSeats()?.then((res) => res);
+    if (check) {
+      setIsOpen(true);
+    } else {
+      alert("Seats are not available");
+    }
   }
 
   return (

@@ -3,6 +3,7 @@ import { Purchase } from "./History";
 import axios from "axios";
 import { Product } from "./ProductLists";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function PurchaseItem({
   purchase,
@@ -27,7 +28,7 @@ export default function PurchaseItem({
     };
 
     const getProducts = async () => {
-      const promise = purchase.products.map((id) => getProductsById(id));
+      const promise = purchase.products.map((p) => getProductsById(p.product));
       const products = await Promise.all(promise);
       setProductsArray(products);
     };
@@ -38,6 +39,7 @@ export default function PurchaseItem({
   return (
     <div>
       {productsArray.map((p: Product, index: number) => {
+        const quantity = purchase.products[index].selectedSeats;
         return (
           <div key={index} className="space-y-0.5 mb-2">
             <Image
@@ -47,7 +49,11 @@ export default function PurchaseItem({
               height={100}
               className="w-full sm:w-40"
             />
-            <h3 className="text-xl font-bold">{p.name}</h3>
+            <Link href={`/${p.category}/${p._id}`} className="hover:underline">
+              <h3 className="text-xl font-bold">
+                {p.name} <span>X{quantity}</span>
+              </h3>
+            </Link>
             <p>${prices[index]}</p>
           </div>
         );

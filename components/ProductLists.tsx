@@ -9,12 +9,12 @@ import Link from "next/link";
 export type Product = {
   _id: string;
   name: string;
-  href: string;
+  quantity: number;
+  seats: number[] | boolean[][];
   category: string;
   description: string;
   searchParam: string;
   date: string;
-  amount: number;
   price: number;
   offer: number;
   rating: number;

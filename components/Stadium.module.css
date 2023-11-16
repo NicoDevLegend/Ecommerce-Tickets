@@ -1,0 +1,174 @@
+.stadium {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  margin: 20px auto;
+  width: 300px;
+  height: 250px;
+  background-color: #e2e2e2;
+  border: 5px double #777;
+  border-radius: 45%;
+}
+
+.field {
+  grid-area: 2 / 2 / 3 / 3;
+  width: 150%;
+  height: 80px;
+  border-radius: 30%;
+}
+
+.field_concerts {
+  border-right: 50px solid #777;
+  cursor: pointer;
+}
+
+.field_sports {
+  background-color: #777;
+}
+
+.north_tribune {
+  grid-area: 1 / 2 / 2 / 3;
+  width: 100%;
+  margin-top: 5px;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-top: 70px solid;
+  border-radius: 15%;
+  cursor: pointer;
+}
+
+.northeast_tribune {
+  grid-area: 1 / 3 / 2 / 4;
+  width: 90%;
+  border-right: 30px solid transparent;
+  border-left: 30px solid transparent;
+  border-top: 60px solid;
+  transform: translate3d(-25px, 25px, 30px) rotate(35deg);
+  border-radius: 15%;
+  cursor: pointer;
+}
+
+.east_tribune {
+  grid-area: 2 / 3 / 3 / 4;
+  width: 100%;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  border-top: 60px solid;
+  transform: rotate(90deg);
+  border-radius: 15%;
+  cursor: pointer;
+}
+
+.southeast_tribune {
+  grid-area: 3 / 3 / 4 / 4;
+  width: 90%;
+  border-right: 30px solid transparent;
+  border-left: 30px solid transparent;
+  border-bottom: 60px solid;
+  transform: translate3d(-25px, -25px, -30px) rotate(-35deg);
+  border-radius: 15%;
+  cursor: pointer;
+}
+
+.south_tribune {
+  grid-area: 3 / 2 / 4 / 3;
+  width: 100%;
+  margin-bottom: 5px;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-bottom: 70px solid;
+  border-radius: 15%;
+  cursor: pointer;
+}
+
+.southwest_tribune {
+  grid-area: 3 / 1 / 4 / 2;
+  width: 90%;
+  border-right: 30px solid transparent;
+  border-left: 30px solid transparent;
+  border-bottom: 60px solid;
+  transform: translate3d(25px, -25px, -30px) rotate(35deg);
+  border-radius: 15%;
+  cursor: pointer;
+}
+
+.west_tribune {
+  grid-area: 2 / 1 / 3 / 2;
+  width: 100%;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  border-bottom: 60px solid;
+  transform: rotate(90deg);
+  border-radius: 15%;
+  cursor: pointer;
+}
+
+.northwest_tribune {
+  grid-area: 1 / 1 / 2 / 2;
+  width: 90%;
+  border-right: 30px solid transparent;
+  border-left: 30px solid transparent;
+  border-top: 60px solid;
+  transform: translate3d(25px, 25px, 30px) rotate(-35deg);
+  border-radius: 15%;
+  cursor: pointer;
+}
+
+.available_top {
+  border-top-color: #4caf50;
+}
+
+.available_top:hover {
+  border-top-color: #2f6931;
+}
+
+.available_bottom {
+  border-bottom-color: #4caf50;
+}
+
+.available_bottom:hover {
+  border-bottom-color: #2f6931;
+}
+
+.blocked_top {
+  border-top-color: #777;
+  cursor: default;
+}
+
+.blocked_bottom {
+  border-bottom-color: #777;
+  cursor: default;
+}
+
+.field_available {
+  background-color: #4caf50;
+}
+
+.field_available:hover {
+  background-color: #2f6931;
+}
+
+.field_selected {
+  background-color: #f44336;
+}
+
+.field_selected:hover {
+  background-color: #64302c;
+}
+
+.selected_top {
+  border-top-color: #f44336;
+}
+
+.selected_bottom {
+  border-bottom-color: #f44336;
+}
+
+.selected_top:hover {
+  border-top-color: #64302c;
+}
+
+.selected_bottom:hover {
+  border-bottom-color: #64302c;
+}

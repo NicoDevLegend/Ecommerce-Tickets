@@ -20,7 +20,8 @@ export default function CardPayment({
   amount,
   prices,
 }: Props) {
-  const { clearCart, cartProducts } = useContext(CartContext);
+  const { clearCart, cartProducts, updateSeatsProduct } =
+    useContext(CartContext);
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState<null | string>(null);
   const [processing, setProcessing] = useState(false);
@@ -28,6 +29,9 @@ export default function CardPayment({
   const stripe = useStripe();
   const elements = useElements();
   const { data: session } = useSession();
+
+  let productsIds = cartProducts?.products.map((p) => p.product);
+  let productsDesc = cartProducts?.products.map((p) => p.desc);
 
   const handleChange = async (e: StripeCardElementChangeEvent) => {
     // Listen for changes in the CardElement
@@ -56,9 +60,9 @@ export default function CardPayment({
       var { data } = await axios.post("/api/create-payment-intent", {
         description: `Name: ${session.user.name || ""}, Email: ${
           session.user.email || ""
-        }, Cart: ${JSON.stringify(cartProducts)}, Amounts: ${JSON.stringify(
-          prices,
-        )}`,
+        }, Cart: ${JSON.stringify(productsIds)}, Desc: ${JSON.stringify(
+          productsDesc,
+        )}, Amounts: ${JSON.stringify(prices)}`,
         amount: amount,
       });
     }
@@ -78,6 +82,7 @@ export default function CardPayment({
       setError(null);
       setProcessing(false);
       setSucceeded(true);
+      updateSeatsProduct();
       clearCart();
     }
   };

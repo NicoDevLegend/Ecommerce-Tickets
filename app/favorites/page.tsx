@@ -1,8 +1,9 @@
 "use client";
+import Favorites from "@/components/Favorites";
 import Loading from "@/components/Loading";
 import { useSession } from "next-auth/react";
 
-export default function Favorites() {
+export default function FavoritesPage() {
   const { status } = useSession({ required: true });
 
   if (status === "loading") {
@@ -11,7 +12,7 @@ export default function Favorites() {
 
   return (
     <section>
-      <p>Favorites</p>
+      <Favorites />
     </section>
   );
 }

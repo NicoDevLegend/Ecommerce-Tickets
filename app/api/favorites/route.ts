@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     const userId = searchParams.get("userId");
     const favorite = await Favorite.create({
       userId: userId,
-      productId: res,
+      productId: res.data,
     }); /* create a new model in the database */
     return NextResponse.json({ favorite });
   } catch (error) {

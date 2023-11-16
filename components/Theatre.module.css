@@ -1,0 +1,56 @@
+.seat {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  border: 2px double #777;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.available {
+  background-color: #4caf50;
+  color: #4606f5;
+}
+
+.available:hover {
+  background-color: #2f6931;
+}
+
+.selected {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.selected:hover {
+  background-color: #64302c;
+}
+
+.row {
+  display: flex;
+  justify-content: right;
+}
+
+.row_label {
+  margin-right: 5px;
+}
+
+.seat:nth-child(6n) {
+  margin-right: 15px;
+}
+
+.theatre_layout {
+  display: flex;
+  flex-direction: column;
+  margin: 15px auto;
+}
+
+.scenery {
+  margin: 0 auto 15px;
+  height: 15px;
+  width: 200px;
+  border-radius: 200px 200px 0 0;
+  background-color: #3d2e05;
+}

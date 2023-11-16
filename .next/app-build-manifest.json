@@ -11,10 +11,16 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/sports/page": [
+    "/shoppingcart/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/sports/page.js"
+      "static/chunks/app/shoppingcart/page.js"
+    ],
+    "/concerts/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/concerts/page.css",
+      "static/chunks/app/concerts/page.js"
     ]
   }
 }

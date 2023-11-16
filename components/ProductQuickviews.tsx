@@ -6,8 +6,9 @@ import Image from "next/image";
 import { Product } from "./ProductLists";
 import Price from "./Price";
 import Link from "next/link";
-import AddToCart from "./AddToCart";
 import AddToFavorites from "./AddToFavorites";
+import Stadium from "./Stadium";
+import Theatre from "./Theatre";
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
@@ -69,10 +70,10 @@ export default function ProductQuickviews({
                         />
                       </div>
                       <div className="sm:col-span-8 lg:col-span-7">
-                        <AddToFavorites productId={product._id} />
+                        <AddToFavorites productId={product._id.toString()} />
                         <Link
-                          href={product.href}
-                          className="hover:underline mb-7"
+                          href={`/${product.category}/${product._id}`}
+                          className="hover:underline mb-7 ml-2"
                         >
                           <h2 className="text-2xl font-bold text-gray-900">
                             {product.name} {product.date}
@@ -128,8 +129,12 @@ export default function ProductQuickviews({
                           <h3 id="options-heading" className="sr-only">
                             Product options
                           </h3>
-
-                          <AddToCart productId={product._id.toString()} />
+                          <p>Available: {product.quantity}</p>
+                          {product.quantity > 100 ? (
+                            <Stadium product={product} />
+                          ) : (
+                            <Theatre product={product} />
+                          )}
                         </section>
                       </div>
                     </div>

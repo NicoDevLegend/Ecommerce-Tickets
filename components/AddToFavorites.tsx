@@ -17,8 +17,7 @@ export default function AddToFavorites({ productId }: { productId: string }) {
         .get(`/api/favorites/isFavorite?userId=${id}&productId=${productId}`)
         .then((res) => {
           setFavorite(res.data.favorite);
-          console.log(res.data.favorite);
-          if (res.data.favorite && res.data.favorite._id === productId) {
+          if (res.data.favorite && res.data.favorite.productId === productId) {
             setIsFavorite(true);
           }
         });
@@ -29,17 +28,17 @@ export default function AddToFavorites({ productId }: { productId: string }) {
   const addToFavorite = async () => {
     if (!isFavorite) {
       await axios
-        .post(`/api/favorites?userId=${session.user.id}`, productId)
+        .post(`/api/favorites?userId=${session.user.id}`, { data: productId })
         .then((res) => setIsFavorite(true));
     }
   };
 
   const deleteToFavorite = async () => {
-    await axios
-      .delete(
-        `/api/favorites/isFavorite?userId=${id}&productId=${favorite?._id}`,
-      )
-      .then(() => setIsFavorite(false));
+    if (isFavorite) {
+      await axios
+        .delete(`/api/favorites/isFavorite?favoriteId=${favorite?._id}`)
+        .then(() => setIsFavorite(false));
+    }
   };
 
   return (
@@ -53,7 +52,7 @@ export default function AddToFavorites({ productId }: { productId: string }) {
         ) : (
           <StarIcon2
             className="h-10 w-10 cursor-pointer mb-6 text-amber-500"
-            onClick={() => {}}
+            onClick={deleteToFavorite}
           />
         )}
       </div>

@@ -18,13 +18,11 @@ export async function GET(request: Request) {
   }
 }
 
-export async function DELETE(
-  request: Request,
-  { params }: { params: { favoriteId: string } },
-) {
+export async function DELETE(request: Request) {
   await dbConnect();
   try {
-    const favoriteId = params.favoriteId;
+    const { searchParams } = new URL(request.url);
+    const favoriteId = searchParams.get("favoriteId");
     const favorite = await Favorite.findByIdAndRemove(favoriteId);
     return NextResponse.json({ favorite });
   } catch (error) {

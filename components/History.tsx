@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import axios from "axios";
 import PurchaseItem from "./PurchaseItem";
+import { CartProduct } from "@/context/CartContext";
 
 export type Purchase = {
   userId: string;
-  products: [];
+  products: CartProduct[];
   prices: [];
   totalPrice: number;
   date: string;

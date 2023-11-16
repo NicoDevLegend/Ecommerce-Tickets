@@ -8,14 +8,12 @@ import { CartContext } from "@/context/CartContext";
 export default function CartItem({
   productId,
   quantity,
-  index,
 }: {
   productId: string;
   quantity: number;
-  index: number;
 }) {
   const [product, setProduct] = useState<Product>();
-  const { removeProduct, addProduct, reduceProduct } = useContext(CartContext);
+  const { removeProduct } = useContext(CartContext);
 
   useEffect(() => {
     axios
@@ -44,34 +42,13 @@ export default function CartItem({
           </div>
           <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
             <div className="flex items-center border-gray-100">
-              <span
-                className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
-                onClick={() => {
-                  if (quantity > 1) {
-                    reduceProduct(index);
-                  }
-                }}
-              >
-                {" "}
-                -{" "}
-              </span>
-              <input
-                className="h-8 w-8 border bg-white text-center text-xs outline-none"
-                type="text"
-                value={quantity}
-                disabled
-              />
-              <span
-                className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
-                onClick={() => addProduct(product._id.toString())}
-              >
-                {" "}
-                +{" "}
-              </span>
+              <div className="text-2xl font-bold">
+                X{quantity}
+              </div>
             </div>
             <div className="flex items-center space-x-4">
               <p className="text-lg">
-                <Price product={product} total quantity={quantity}/>
+                <Price product={product} total quantity={quantity} />
               </p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -7,8 +7,9 @@ import { Product } from "@/components/ProductLists";
 import axios from "axios";
 import Link from "next/link";
 import Price from "./Price";
-import AddToCart from "./AddToCart";
 import AddToFavorites from "./AddToFavorites";
+import Stadium from "./Stadium";
+import Theatre from "./Theatre";
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
@@ -109,7 +110,7 @@ export default function Product() {
                   {product.name} {product.date}
                 </span>
                 <span>
-                <AddToFavorites productId={product._id.toString()} />
+                  <AddToFavorites productId={product._id.toString()} />
                 </span>
               </h1>
             </div>
@@ -148,8 +149,13 @@ export default function Product() {
                   </a>
                 </div>
               </div>
-
-              <AddToCart productId={product._id.toString()} />
+              <br></br>
+              <p>Available: {product.quantity}</p>
+              {product.quantity > 100 ? (
+                <Stadium product={product} />
+              ) : (
+                <Theatre product={product} />
+              )}
             </div>
 
             <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
@@ -159,7 +165,7 @@ export default function Product() {
 
                 <div className="space-y-6">
                   <p className="text-base text-gray-900">
-                    {/*product.description*/}Description
+                    Description: <strong>{product.searchParam}</strong>
                   </p>
                 </div>
               </div>
