@@ -4,6 +4,7 @@ import axios from "axios";
 import { Product } from "./ProductLists";
 import Image from "next/image";
 import Link from "next/link";
+import SeatsDescription from "./SeatsDescription";
 
 export default function PurchaseItem({
   purchase,
@@ -54,6 +55,7 @@ export default function PurchaseItem({
                 {p.name} <span>X{quantity}</span>
               </h3>
             </Link>
+            <SeatsDescription desc={purchase.products[index].desc} />
             <p>${prices[index]}</p>
           </div>
         );

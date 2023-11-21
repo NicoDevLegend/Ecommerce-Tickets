@@ -1,5 +1,6 @@
 {
   "/page": "app/page.js",
-  "/api/products/search/route": "app/api/products/search/route.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
+  "/purchasehistory/page": "app/purchasehistory/page.js",
+  "/shoppingcart/page": "app/shoppingcart/page.js",
+  "/api/products/[productId]/route": "app/api/products/[productId]/route.js"
 }

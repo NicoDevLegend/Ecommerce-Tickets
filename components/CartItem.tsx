@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { Product } from "./ProductLists";
 import Price from "./Price";
 import { CartContext } from "@/context/CartContext";
+import SeatsDescription from "./SeatsDescription";
 
 export default function CartItem({
   productId,
@@ -16,23 +17,12 @@ export default function CartItem({
 }) {
   const [product, setProduct] = useState<Product>();
   const { removeProduct } = useContext(CartContext);
-  const [seatsDesc, setSeatsDesc] = useState<string[]>([""]);
 
   useEffect(() => {
     axios
       .get(`/api/products/${productId}`)
       .then((res) => setProduct(res.data.products));
-
-    if (desc instanceof Array) {
-      setSeatsDesc(desc);
-    } else if (desc instanceof Object) {
-      //const seatsKeys = Object.keys(desc);
-      //const seatsValues = Object.values(desc);
-
-      //const seatsArray = seatsKeys.filter((seat, i) => seatsValues[i] > 0);
-      setSeatsDesc([""]);
-    }
-  }, [productId, desc]);
+  }, [productId]);
 
   return (
     product && (
@@ -55,15 +45,13 @@ export default function CartItem({
           </div>
           <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
             <div className="flex items-center border-gray-100">
-              <div className="text-2xl font-bold">
-                X{quantity}{" "}
-                {seatsDesc.map((s, i) => (
-                  <strong key={i}>{s} </strong>
-                ))}
+              <div className="text-xl">
+                X{quantity}
+                <SeatsDescription desc={desc} />
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <p className="text-lg">
+              <p className="text-xl font-bold">
                 <Price product={product} total quantity={quantity} />
               </p>
               <svg
