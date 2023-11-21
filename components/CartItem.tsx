@@ -8,18 +8,31 @@ import { CartContext } from "@/context/CartContext";
 export default function CartItem({
   productId,
   quantity,
+  desc,
 }: {
   productId: string;
   quantity: number;
+  desc: [] | {};
 }) {
   const [product, setProduct] = useState<Product>();
   const { removeProduct } = useContext(CartContext);
+  const [seatsDesc, setSeatsDesc] = useState<string[]>([""]);
 
   useEffect(() => {
     axios
       .get(`/api/products/${productId}`)
       .then((res) => setProduct(res.data.products));
-  }, [productId]);
+
+    if (desc instanceof Array) {
+      setSeatsDesc(desc);
+    } else if (desc instanceof Object) {
+      //const seatsKeys = Object.keys(desc);
+      //const seatsValues = Object.values(desc);
+
+      //const seatsArray = seatsKeys.filter((seat, i) => seatsValues[i] > 0);
+      setSeatsDesc([""]);
+    }
+  }, [productId, desc]);
 
   return (
     product && (
@@ -43,7 +56,10 @@ export default function CartItem({
           <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
             <div className="flex items-center border-gray-100">
               <div className="text-2xl font-bold">
-                X{quantity}
+                X{quantity}{" "}
+                {seatsDesc.map((s, i) => (
+                  <strong key={i}>{s} </strong>
+                ))}
               </div>
             </div>
             <div className="flex items-center space-x-4">

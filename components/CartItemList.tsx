@@ -17,6 +17,7 @@ export default function CartItemList() {
               key={product.product}
               productId={product.product}
               quantity={product.selectedSeats}
+              desc={product.desc}
             />
           );
         })}
