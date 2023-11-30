@@ -1,7 +1,40 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { FormEvent, useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import GoogleProviderButton from "./GoogleProviderButton";
 
 export default function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const router = useRouter();
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const res = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      }).then((response) => {
+        if (response?.error) {
+          setError("Invalid Credentials");
+          return;
+        } else {
+          router.push("/");
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -18,7 +51,7 @@ export default function LoginForm() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" action="#" method="POST">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label
               htmlFor="email"
@@ -33,6 +66,7 @@ export default function LoginForm() {
                 type="email"
                 autoComplete="email"
                 required
+                onChange={(e) => setEmail(e.target.value)}
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
@@ -62,10 +96,16 @@ export default function LoginForm() {
                 type="password"
                 autoComplete="current-password"
                 required
+                onChange={(e) => setPassword(e.target.value)}
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
+          {error && (
+            <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">
+              {error}
+            </div>
+          )}
 
           <div>
             <button
@@ -76,7 +116,12 @@ export default function LoginForm() {
             </button>
           </div>
         </form>
-
+        <div className="flex flex-col">
+          <p className="mx-auto my-6">- or -</p>
+          <GoogleProviderButton
+            onClick={() => signIn("google", { callbackUrl: "/" })}
+          />
+        </div>
         <p className="mt-10 text-center text-sm text-gray-500">
           {"Don't have an account?"}{" "}
           <Link

@@ -15,7 +15,7 @@ export default function FavoriteItem({ productId }: { productId: string }) {
         .then((res) => setProduct(res.data.products));
     };
     getProduct();
-  });
+  }, [productId]);
 
   return (
     product && (
@@ -25,7 +25,7 @@ export default function FavoriteItem({ productId }: { productId: string }) {
           alt={product.imageAlt}
           width={100}
           height={100}
-          className="w-full sm:w-40"
+          className="w-full mx-auto"
         />
         <Link
           href={`/${product.category}/${product._id}`}

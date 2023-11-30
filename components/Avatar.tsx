@@ -25,7 +25,7 @@ export default function Avatar({ classNames }: { classNames: any }) {
           {session && session.user ? (
             <Image
               className="border-2 border-slate-400 h-8 w-8 rounded-full"
-              src={session.user.image || "https://placeholder.pics/svg"}
+              src={session.user.image as string}
               alt="user image"
               width={100}
               height={100}

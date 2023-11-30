@@ -19,7 +19,7 @@ export default function SeatsDescription({ desc }: { desc: [] | {} }) {
 
   return (
     <div>
-      <p>Seats:</p>
+      <p className="mb-3 text-lg underline">Seats:</p>
       {seatsDesc.map((s, i) => (
         <p key={i}>{s}</p>
       ))}

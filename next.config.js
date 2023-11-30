@@ -7,7 +7,6 @@ const nextConfig = {
         protocol: "https",
         hostname: "placeholder.pics",
         port: "",
-        pathname: "/svg/",
       },
       {
         protocol: "https",
@@ -17,6 +16,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "ui-avatars.com",
       },
     ],
   },
