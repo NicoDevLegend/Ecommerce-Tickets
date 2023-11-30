@@ -1,9 +1,10 @@
 {
   "pages": {
-    "/page": [
+    "/[section]/[productId]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/css/app/[section]/[productId]/page.css",
+      "static/chunks/app/[section]/[productId]/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -11,16 +12,11 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/offers/page": [
+    "/concerts/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/offers/page.css",
-      "static/chunks/app/offers/page.js"
-    ],
-    "/favorites/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/favorites/page.js"
+      "static/css/app/concerts/page.css",
+      "static/chunks/app/concerts/page.js"
     ],
     "/sports/page": [
       "static/chunks/webpack.js",
@@ -28,21 +24,20 @@
       "static/css/app/sports/page.css",
       "static/chunks/app/sports/page.js"
     ],
-    "/[section]/[productId]/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/[section]/[productId]/page.css",
-      "static/chunks/app/[section]/[productId]/page.js"
+      "static/chunks/app/page.js"
     ],
     "/shoppingcart/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/shoppingcart/page.js"
     ],
-    "/profile/page": [
+    "/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/profile/page.js"
+      "static/chunks/app/login/page.js"
     ]
   }
 }

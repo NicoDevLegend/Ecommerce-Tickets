@@ -1,4 +1,4 @@
-// File: /workspace/app/api/products/[productId]/route.ts
+// File: /workspaces/Ecommerce-Tickets/app/api/products/[productId]/route.ts
 import * as entry from '../../../../../../app/api/products/[productId]/route.js'
 import type { NextRequest } from 'next/server.js'
 

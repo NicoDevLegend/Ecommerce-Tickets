@@ -19,19 +19,19 @@ export default function FavoriteItem({ productId }: { productId: string }) {
 
   return (
     product && (
-      <div className="space-y-0.5 mb-2 p-6">
+      <div className="space-y-0.5 mb-2 p-6  mx-auto max-w-lg">
         <Image
           src={product.imageSrc}
           alt={product.imageAlt}
           width={100}
           height={100}
-          className="w-full mx-auto"
+          className="w-full"
         />
         <Link
           href={`/${product.category}/${product._id}`}
           className="hover:underline"
         >
-          <h3 className="text-xl font-bold">{product.name}</h3>
+          <h3 className="text-xl font-bold mx-auto">{product.name}</h3>
         </Link>
         <Price product={product} />
       </div>

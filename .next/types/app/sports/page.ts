@@ -1,4 +1,4 @@
-// File: /workspace/app/sports/page.tsx
+// File: /workspaces/Ecommerce-Tickets/app/sports/page.tsx
 import * as entry from '../../../../app/sports/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

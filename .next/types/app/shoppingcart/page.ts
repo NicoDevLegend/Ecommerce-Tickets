@@ -1,4 +1,4 @@
-// File: /workspace/app/shoppingcart/page.tsx
+// File: /workspaces/Ecommerce-Tickets/app/shoppingcart/page.tsx
 import * as entry from '../../../../app/shoppingcart/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

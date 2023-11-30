@@ -2,10 +2,11 @@
 
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { TicketIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
-import Image from "next/image";
 import Avatar from "./Avatar";
 import ShoppingCart from "./ShoppingCart";
+import { useParams, usePathname } from "next/navigation";
 
 const navigation = [
   { name: "SPORTS", href: "/sports", current: false },
@@ -18,8 +19,11 @@ function classNames(...classes: any[]) {
 }
 
 export default function Header() {
+  const params = useParams();
+  const pathname = usePathname();
+
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-lime-500">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -38,14 +42,8 @@ export default function Header() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <Link href="/">
-                    <Image
-                      className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                      alt="Ecommerce-Tickets"
-                      width={100}
-                      height={100}
-                    />
+                  <Link href="/" className="w-10 h-10">
+                    <TicketIcon color="#EF036C" />
                   </Link>
                 </div>
                 <div className="hidden sm:mx-auto sm:block">
@@ -55,12 +53,12 @@ export default function Header() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current
-                            ? "bg-gray-900 text-white"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "rounded-md px-3 py-2 text-sm font-bold",
+                          item.href === `/${params.section}` ||
+                            item.href === pathname
+                            ? "bg-black text-white  border-r-lime-600 border-b-lime-600"
+                            : "bg-white text-black border-r-black border-b-black hover:bg-black hover:text-white",
+                          "border-b-4 border-r-4 px-3 py-2 text-sm font-bold"
                         )}
-                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </Link>
@@ -90,7 +88,7 @@ export default function Header() {
                     item.current
                       ? "bg-gray-900 text-white"
                       : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                    "block rounded-md px-3 py-2 text-base font-medium",
+                    "block px-3 py-2 text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}
                 >

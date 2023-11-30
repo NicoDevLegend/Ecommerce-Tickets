@@ -1,12 +1,7 @@
 {
   "/page": "app/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/favorites/page": "app/favorites/page.js",
+  "/concerts/page": "app/concerts/page.js",
   "/sports/page": "app/sports/page.js",
-  "/shoppingcart/page": "app/shoppingcart/page.js",
-  "/profile/page": "app/profile/page.js",
-  "/[section]/[productId]/page": "app/[section]/[productId]/page.js",
-  "/api/cart/route": "app/api/cart/route.js",
-  "/api/products/search/route": "app/api/products/search/route.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
+  "/login/page": "app/login/page.js",
+  "/[section]/[productId]/page": "app/[section]/[productId]/page.js"
 }

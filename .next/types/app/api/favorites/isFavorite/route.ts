@@ -1,4 +1,4 @@
-// File: /workspace/app/api/favorites/isFavorite/route.ts
+// File: /workspaces/Ecommerce-Tickets/app/api/favorites/isFavorite/route.ts
 import * as entry from '../../../../../../app/api/favorites/isFavorite/route.js'
 import type { NextRequest } from 'next/server.js'
 

@@ -31,7 +31,7 @@ export default function CartItem({
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           className="h-8 w-8 cursor-pointer duration-150 hover:text-red-500 my-3 self-end"
           onClick={() => removeProduct(product._id.toString())}
