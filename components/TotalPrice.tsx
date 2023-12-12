@@ -17,7 +17,7 @@ export default function TotalPrice() {
         const prices = await Promise.all<any>(
           cartProducts.products.map(async (productId) => {
             const products = await axios.get(
-              `/api/products/${productId.product}`,
+              `/api/products/${productId.product}`
             );
             const product = await products?.data.products;
             let quantity = productId.selectedSeats;
@@ -28,19 +28,19 @@ export default function TotalPrice() {
                   (
                     product.price -
                     (product.offer / 100) * product.price
-                  ).toFixed(2),
+                  ).toFixed(2)
                 ) * quantity;
             } else {
               price = Number(product?.price.toFixed(2)) * quantity;
             }
             return price;
-          }),
+          })
         );
         setPrices(prices);
         setTotalPrice(
           prices
             .reduce((acc: number, price: number) => acc + price, 0)
-            .toFixed(2),
+            .toFixed(2)
         );
       } else {
         setTotalPrice([0]);
@@ -64,7 +64,7 @@ export default function TotalPrice() {
 
   return (
     cartProducts && (
-      <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-12 md:w-1/3">
+      <div className="mt-6 h-full border-r-8 border-b-8 border-black bg-white p-6 shadow-md md:mt-12 md:w-1/3">
         <div className="flex justify-between">
           <p className="text-xl font-bold">Total</p>
           <div className="">
@@ -72,7 +72,7 @@ export default function TotalPrice() {
           </div>
         </div>
         <button
-          className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"
+          className="mt-6 w-full shadow shadow-black rounded-md bg-fuchsia-600 border-2 border-black py-1.5 font-bold text-lime-300 hover:bg-fuchsia-800"
           onClick={openModal}
         >
           Check out

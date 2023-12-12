@@ -41,22 +41,31 @@ export default function PurchaseItem({
     <div>
       {productsArray.map((p: Product, index: number) => {
         const quantity = purchase.products[index].selectedSeats;
+
         return (
-          <div key={index} className="space-y-0.5 mb-2">
+          <div
+            key={index}
+            className="bg-lime-600 shadow shadow-md space-y-0.5 p-6"
+          >
+            <p className="max-w-max bg-white p-3 border-b-4 border-r-4 border-black font-bold text-black">
+              {purchase.date}
+            </p>
             <Image
               src={p.imageSrc}
               alt={p.imageAlt}
-              width={100}
-              height={100}
-              className="w-full sm:w-40"
+              width={500}
+              height={500}
+              className="w-full min-w-mim border-2 border-lime-300"
             />
             <Link href={`/${p.category}/${p._id}`} className="hover:underline">
-              <h3 className="text-xl font-bold">
+              <h3 className="min-w-min bg-white p-3 mt-3 border-b-4 border-r-4 border-black font-bold text-black">
                 {p.name} <span>X{quantity}</span>
               </h3>
             </Link>
             <SeatsDescription desc={purchase.products[index].desc} />
-            <p>${prices[index]}</p>
+            <p className="w-max p-3 text-lg font-bold shadow shadow-black rounded-md text-black bg-fuchsia-800">
+              ${prices[index]}
+            </p>
           </div>
         );
       })}

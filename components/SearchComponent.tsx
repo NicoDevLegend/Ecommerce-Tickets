@@ -6,6 +6,7 @@ import { Product } from "./ProductLists";
 import Link from "next/link";
 import { postProductReviews } from "./ProductLists";
 import Highlighter from "react-highlight-words";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function SearchComponent() {
   const [value, setValue] = useState("");
@@ -39,7 +40,7 @@ export default function SearchComponent() {
         <div className="relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="absolute top-0 bottom-0 w-6 h-6 my-auto text-gray-400 left-3"
+            className="absolute top-0 bottom-0 w-6 h-6 my-auto text-fuchsia-600 left-3"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -56,28 +57,41 @@ export default function SearchComponent() {
             value={value}
             placeholder="Search Event/Artist/Team"
             onChange={(event) => searchHandler(event)}
-            className="w-full py-3 pl-12 pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white focus:border-indigo-600"
+            className="w-full py-3 pl-12 pr-4 text-black border rounded-md outline-none bg-fuchsia-300 focus:bg-fuchsia-200 focus:border-lime-600 placeholder:text-fuchsia-900"
           />
+          {value !== "" && (
+            <XMarkIcon
+              className="absolute top-0 bottom-0 h-6 w-6 my-auto text-fuchsia-600 right-3 cursor-pointer"
+              aria-hidden="true"
+              onClick={() => setValue("")}
+            />
+          )}
           {products && value !== "Search Event/Artist/Team" && (
             <div className="absolute w-full max-h-52 overflow-y-auto z-50">
               {products.map((product: Product) => {
                 return (
-                  <div key={product._id} className="bg-white p-2">
+                  <div
+                    key={product._id}
+                    className="bg-white p-4 border-b-2 border-slate-300"
+                  >
                     <Link
                       href={`/${product.category}/${product._id}`}
                       onClick={() => clearSearch(product)}
+                      className="flex flex-col"
                     >
-                      <p className="text-xs">{product.category}</p>
+                      <p className="text-xs underline self-end">
+                        {product.category}
+                      </p>
                       <Highlighter
                         searchWords={[value]}
-                        highlightClassName="font-bold bg-slate-300"
+                        highlightClassName="font-bold bg-lime-300"
                         className="font-bold"
                         textToHighlight={product.name}
                       />
                       <br />
                       <Highlighter
                         searchWords={[value]}
-                        highlightClassName="font-bold bg-slate-300"
+                        highlightClassName="font-bold bg-lime-300 text-black"
                         className="text-sm text-gray-500"
                         textToHighlight={product.searchParam}
                         autoEscape={true}

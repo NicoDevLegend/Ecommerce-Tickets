@@ -2,6 +2,7 @@
 import { CartContext, CartProduct } from "@/context/CartContext";
 import { useContext } from "react";
 import CartItem from "./CartItem";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
 export default function CartItemList() {
   const { cartProducts } = useContext(CartContext);
@@ -10,7 +11,7 @@ export default function CartItemList() {
 
   return (
     <div className="rounded-lg md:w-2/3">
-      {cartProducts &&
+      {cartProducts ? (
         products?.map((product) => {
           return (
             <CartItem
@@ -20,7 +21,10 @@ export default function CartItemList() {
               desc={product.desc}
             />
           );
-        })}
+        })
+      ) : (
+        <ShoppingCartIcon className="max-w-xs mx-auto text-lime-500" />
+      )}
     </div>
   );
 }

@@ -19,21 +19,30 @@ export default function FavoriteItem({ productId }: { productId: string }) {
 
   return (
     product && (
-      <div className="space-y-0.5 mb-2 p-6  mx-auto max-w-lg">
+      <div className="space-y-0.5 mb-2 p-6 mx-auto max-w-lg">
         <Image
           src={product.imageSrc}
           alt={product.imageAlt}
-          width={100}
-          height={100}
-          className="w-full"
+          width={500}
+          height={500}
+          className="w-full border-2 border-lime-300"
         />
-        <Link
-          href={`/${product.category}/${product._id}`}
-          className="hover:underline"
-        >
-          <h3 className="text-xl font-bold mx-auto">{product.name}</h3>
-        </Link>
-        <Price product={product} />
+        <div className="bg-lime-500 p-1 shadow-xl">
+          <Link
+            href={`/${product.category}/${product._id}`}
+            className="hover:underline"
+          >
+            <h3 className="h-28 bg-white p-3 border-b-4 border-r-4 border-black text-xl font-bold pr-12">
+              {product.name} {product.date}
+            </h3>
+          </Link>
+          <h3 className="max-w-max mx-3 -mt-2 text-l font-bold text-white bg-black border-b-4 border-r-4 border-lime-600 ps-3 py-2 pr-12">
+            {product.searchParam}
+          </h3>
+        </div>
+        <p className="w-max text-lg font-medium shadow shadow-black rounded-md text-black bg-fuchsia-800 p-3 border-2 border-black">
+          <Price product={product} />
+        </p>
       </div>
     )
   );

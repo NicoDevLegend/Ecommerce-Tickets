@@ -11,8 +11,8 @@
 }
 
 .available {
-  background-color: #4caf50;
-  color: #4606f5;
+  background-color: #ef036c;
+  color: white;
 }
 
 .available:hover {
@@ -20,7 +20,7 @@
 }
 
 .selected {
-  background-color: #f44336;
+  background-color: black;
   color: #fff;
 }
 
@@ -52,5 +52,5 @@
   height: 15px;
   width: 200px;
   border-radius: 200px 200px 0 0;
-  background-color: #3d2e05;
+  background-color: #078122;
 }

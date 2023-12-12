@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Price from "./Price";
 import axios from "axios";
 import Link from "next/link";
+import Pulse from "./Pulse";
 
 export type Product = {
   _id: string;
@@ -41,11 +42,14 @@ export default function ProductLists({
   const [open, setOpen] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
   const [product, setProduct] = useState<Product>();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(`/api/products?category=${section}`)
-      .then((res) => setProducts(res.data.products));
+    setLoading(true);
+    axios.get(`/api/products?category=${section}`).then((res) => {
+      setProducts(res.data.products);
+      setLoading(false);
+    });
   }, [section]);
 
   const handleSetOpen = (product: Product) => {
@@ -59,47 +63,65 @@ export default function ProductLists({
 
   return (
     <>
-      <div className="bg-gray-300">
+      <div>
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h3 className="text-3xl sl:text-center m-6">
+          <h3 className="bg-black text-white w-max p-3 border-b-4 border-r-4 border-lime-500 text-3xl sl:text-center m-6">
             {section.toLocaleUpperCase()}
           </h3>
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {products
-              .filter((product: Product) =>
-                offers ? product.offer : product._id,
-              )
-              .map((product: Product) => {
-                return (
-                  <div key={product._id}>
-                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                      <Image
-                        src={product.imageSrc}
-                        alt={product.imageAlt}
-                        width={100}
-                        height={100}
+            {loading ? (
+              <>
+                <Pulse />
+                <Pulse />
+                <Pulse />
+                <Pulse />
+              </>
+            ) : (
+              products
+                .filter((product: Product) =>
+                  offers ? product.offer : product._id
+                )
+                .map((product: Product) => {
+                  return (
+                    <div key={product._id} className="flex flex-col">
+                      <div
                         onClick={() => handleSetOpen(product)}
-                        className="cursor-pointer h-full w-full object-cover object-center group-hover:opacity-75"
-                      />
+                        className="aspect-h-1 aspect-w-1 w-full overflow-hidden border-2 border-lime-500 xl:aspect-h-8 xl:aspect-w-7 hover:opacity-90 cursor-pointer group"
+                      >
+                        <Image
+                          src={product.imageSrc}
+                          alt={product.imageAlt}
+                          width={500}
+                          height={500}
+                          className="h-full w-full object-cover object-center"
+                        />
+                        <div className="flex justify-center items-center h-full w-full text-lime-100 text-xl font-bold invisible group-hover:visible">
+                          Click to quickview
+                        </div>
+                      </div>
+                      <div className="bg-lime-500 p-1">
+                        <Link
+                          href={`/${section}/${product._id}`}
+                          className="text-black hover:underline"
+                          onClick={() => postProductReviews(product)}
+                        >
+                          <h3 className="h-28 bg-white p-3 border-b-4 border-r-4 border-black text-xl font-bold pr-12">
+                            <strong>
+                              {product.name} {product.date}
+                            </strong>
+                          </h3>
+                        </Link>
+                        <h3 className="w-max mx-3 -mt-2 text-l font-bold text-white bg-black border-b-4 border-r-4 border-lime-600 ps-3 py-2 pr-12">
+                          {product.searchParam}
+                        </h3>
+                      </div>
+                      <p className="w-max text-lg font-medium shadow shadow-black rounded-md text-black bg-fuchsia-800 p-3 border-2 border-black self-end">
+                        <Price product={product} />
+                      </p>
                     </div>
-                    <Link
-                      href={`/${section}/${product._id}`}
-                      className="hover:underline"
-                      onClick={() => postProductReviews(product)}
-                    >
-                      <h3 className="text-xl font-bold text-gray-700 sm:pr-12">
-                        {product.name} {product.date}
-                      </h3>
-                    </Link>
-                    <h3 className="text-l font-bold text-gray-500 sm:pr-12">
-                      {product.searchParam}
-                    </h3>
-                    <p className="mt-1 text-lg font-medium text-gray-900">
-                      <Price product={product} />
-                    </p>
-                  </div>
-                );
-              })}
+                  );
+                })
+            )}
           </div>
         </div>
       </div>

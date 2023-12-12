@@ -26,12 +26,12 @@ export default function Theatre({ product }: { product: Product }) {
 
     if (updatedSeats[row][seat]) {
       const seatsArray = seatsDesc.concat(
-        getRowLetter(row) + getSeatNumber(seat),
+        getRowLetter(row) + getSeatNumber(seat)
       );
       setSeatsDesc(seatsArray);
     } else {
       const seatsArray = seatsDesc.filter(
-        (s) => s !== getRowLetter(row) + getSeatNumber(seat),
+        (s) => s !== getRowLetter(row) + getSeatNumber(seat)
       );
       setSeatsDesc(seatsArray);
     }
@@ -42,7 +42,9 @@ export default function Theatre({ product }: { product: Product }) {
 
   return (
     <div className="flex flex-col justify-center text-center p-6">
-      <h1>Seats Selection</h1>
+      <h1 className="max-w-max mx-auto p-1 text-black font-bold bg-white border-b-4 border-r-4 border-black">
+        Seats Selection
+      </h1>
       <div className={`${styles.theatre_layout} mx-auto`}>
         {seats.map((row, rowIndex) => (
           <div key={rowIndex} className={styles.row}>
@@ -62,15 +64,18 @@ export default function Theatre({ product }: { product: Product }) {
         ))}
       </div>
       <div className={styles.scenery}></div>
-      <div>
+      <div className="bg-black text-white border-b-4 border-r-4 border-lime-600">
         <p>
-          Selected Seats: <strong>{selectedSeats}</strong>
+          Selected Seats:{" "}
+          <strong className="text-fuchsia-500">{selectedSeats}</strong>
         </p>
         <p>Available Seats: {availableSeats}</p>
         <p>
           Seat:{" "}
           {seatsDesc.map((s, i) => (
-            <strong key={i}>{s} </strong>
+            <strong key={i} className="text-fuchsia-500">
+              {s}{" "}
+            </strong>
           ))}
         </p>
       </div>

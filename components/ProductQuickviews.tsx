@@ -34,7 +34,7 @@ export default function ProductQuickviews({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 hidden bg-gray-500 bg-opacity-75 transition-opacity md:block" />
+            <div className="fixed inset-0 hidden bg-black bg-opacity-75 transition-opacity md:block" />
           </Transition.Child>
 
           <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -49,10 +49,10 @@ export default function ProductQuickviews({
                 leaveTo="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
               >
                 <Dialog.Panel className="flex w-full transform text-left text-base transition md:my-8 md:max-w-2xl md:px-4 lg:max-w-4xl">
-                  <div className="relative flex w-full items-center overflow-hidden bg-white px-4 pb-8 pt-14 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
+                  <div className="relative flex w-full min-w-min items-center overflow-auto bg-lime-600 px-4 pb-8 pt-14 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
                     <button
                       type="button"
-                      className="absolute right-4 top-4 text-gray-400 hover:text-gray-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8"
+                      className="absolute shadow shadow-black right-4 top-4 bg-fuchsia-600 text-lime-500 hover:text-fuchsia-500 hover:bg-lime-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8"
                       onClick={onClose}
                     >
                       <span className="sr-only">Close</span>
@@ -60,12 +60,12 @@ export default function ProductQuickviews({
                     </button>
 
                     <div className="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
-                      <div className="aspect-h-3 aspect-w-2 overflow-hidden rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5">
+                      <div className="aspect-h-3 aspect-w-2 overflow-hidden border border-lime-500 rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5">
                         <Image
                           src={product.imageSrc}
                           alt={product.imageAlt}
-                          width={100}
-                          height={100}
+                          width={500}
+                          height={500}
                           className="object-cover object-center"
                         />
                       </div>
@@ -75,7 +75,7 @@ export default function ProductQuickviews({
                           href={`/${product.category}/${product._id}`}
                           className="hover:underline mb-7 ml-2"
                         >
-                          <h2 className="text-2xl font-bold text-gray-900">
+                          <h2 className="min-w-min bg-white p-3 border-b-4 border-r-4 border-black text-2xl font-bold text-gray-900">
                             {product.name} {product.date}
                           </h2>
                         </Link>
@@ -87,7 +87,7 @@ export default function ProductQuickviews({
                           <h3 id="information-heading" className="sr-only">
                             Product information
                           </h3>
-                          <p className="mt-1 text-2xl font-medium text-gray-900">
+                          <p className="w-max p-3 text-lg font-medium shadow shadow-black rounded-md text-black bg-fuchsia-500">
                             <Price product={product} />
                           </p>
 
@@ -101,9 +101,9 @@ export default function ProductQuickviews({
                                     key={rating}
                                     className={classNames(
                                       product.rating > rating
-                                        ? "text-gray-900"
-                                        : "text-gray-200",
-                                      "h-5 w-5 flex-shrink-0",
+                                        ? "text-fuchsia-500"
+                                        : "text-lime-500",
+                                      "h-5 w-5 flex-shrink-0"
                                     )}
                                     aria-hidden="true"
                                   />
@@ -114,7 +114,7 @@ export default function ProductQuickviews({
                               </p>
                               <a
                                 href="#"
-                                className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                                className="ml-3 p-1 text-sm font-medium text-white bg-black border-b-4 border-r-4 border-lime-500 hover:text-lime-500"
                               >
                                 {product.reviewCount} reviews
                               </a>
@@ -124,12 +124,14 @@ export default function ProductQuickviews({
 
                         <section
                           aria-labelledby="options-heading"
-                          className="mt-10"
+                          className="min-w-min mt-10 p-1 bg-lime-500"
                         >
                           <h3 id="options-heading" className="sr-only">
                             Product options
                           </h3>
-                          <p>Available: {product.quantity}</p>
+                          <p className="bg-white text-black p-3 border-b-4 border-r-4 border-black">
+                            <strong>Available: {product.quantity}</strong>
+                          </p>
                           {product.quantity > 100 ? (
                             <Stadium product={product} />
                           ) : (

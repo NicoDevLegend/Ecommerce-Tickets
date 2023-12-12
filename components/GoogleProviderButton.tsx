@@ -4,7 +4,10 @@ export default function GoogleProviderButton({
   onClick: () => void;
 }) {
   return (
-    <button onClick={onClick} className="gsi-material-button">
+    <button
+      onClick={onClick}
+      className="gsi-material-button shadow shadow-black border-2 border-black hover:bg-gray-100"
+    >
       <div className="gsi-material-button-state"></div>
       <div className="gsi-material-button-content-wrapper">
         <div className="gsi-material-button-icon">

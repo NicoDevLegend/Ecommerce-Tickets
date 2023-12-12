@@ -8,7 +8,7 @@ type CartContext = {
     productId: string,
     selectedSeats: number,
     desc: {} | [],
-    seats: number[] | boolean[][],
+    seats: number[] | boolean[][]
   ) => void;
   removeProduct: (productId: string) => void;
   reduceProduct: (index: number) => void;
@@ -36,7 +36,7 @@ export const CartContext = createContext<CartContext>({
     productId: string,
     selectedSeats: number,
     desc: {} | [],
-    seats: number[] | boolean[][],
+    seats: number[] | boolean[][]
   ) => null,
   removeProduct: (productId: string) => null,
   reduceProduct: (index: number) => null,
@@ -62,7 +62,7 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
     productId: string,
     selectedSeats: number,
     desc: {} | [],
-    seats: number[] | boolean[][],
+    seats: number[] | boolean[][]
   ) {
     if (!cartProducts) {
       axios
@@ -92,7 +92,7 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
 
   function removeProduct(productId: string) {
     const products = cartProducts?.products.filter(
-      (product) => product.product !== productId,
+      (product) => product.product !== productId
     );
 
     if (cartProducts && cartProducts.products.length > 1) {
@@ -133,19 +133,19 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
           const rows = "ABCDEFGHIJ";
           const resultArray = p.desc.map(
             (seat) =>
-              product.seats[rows.indexOf(seat[0])][Number(seat.slice(1)) - 1],
+              product.seats[rows.indexOf(seat[0])][Number(seat.slice(1)) - 1]
           );
           const result = resultArray.includes(true) ? true : false;
           return result;
         } else if (p.desc instanceof Object) {
           const values = Object.values(p.desc);
           const resultArray = values.map(
-            (seat, index) => seat > 0 && product.seats[index] === 0,
+            (seat, index) => seat > 0 && product.seats[index] === 0
           );
           const result = resultArray.includes(true) ? true : false;
           return result;
         }
-      }),
+      })
     );
     const result = resultsArray.includes(true) ? false : true;
     return result;

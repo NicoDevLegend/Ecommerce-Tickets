@@ -21,7 +21,7 @@ export default function CheckoutForm() {
     }
 
     const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret",
+      "payment_intent_client_secret"
     );
 
     if (!clientSecret) {
@@ -61,7 +61,8 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "https://l4yhfp-3000.csb.app/",
+        return_url:
+          "https://vigilant-yodel-q77w9qxw55gcxp4x-3000.app.github.dev",
       },
     });
 

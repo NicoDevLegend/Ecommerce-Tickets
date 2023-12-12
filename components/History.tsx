@@ -24,16 +24,19 @@ export default function History() {
 
   return (
     <div>
-      <h1 className="text-xl font-bold text-center my-6">Purchase History</h1>
+      <h1 className="bg-black text-white w-max p-3 border-b-4 border-r-4 border-lime-500 text-3xl sl:text-center m-6">
+        Purchase History
+      </h1>
       {purchaseArray.map((p: Purchase, index) => {
         return (
           <div
             key={index}
-            className="justify-between space-y-5 mb-6 bg-white p-6 shadow-md sm:flex sm:justify-start"
+            className="justify-between mb-6 bg-transparent p-6 sm:flex sm:justify-center"
           >
-            <p>{p.date}</p>
             <PurchaseItem purchase={p} prices={p.prices} />
-            <p className="text-lg font-bold">TOTAL ${p.totalPrice}</p>
+            <p className="max-w-max h-min p-3 text-xl font-bold shadow shadow-black rounded-md text-black bg-fuchsia-800">
+              TOTAL ${p.totalPrice}
+            </p>
           </div>
         );
       })}

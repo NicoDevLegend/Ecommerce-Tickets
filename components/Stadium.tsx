@@ -19,7 +19,9 @@ const SeatsDesc = {
 export default function Stadium({ product }: { product: Product }) {
   const [selectedSeats, setSelectedSeats] = useState<number>(0);
   const [seatsDesc, setSeatsDesc] = useState(SeatsDesc);
-  const [availableSeats, setAvailableSeats] = useState<number[]>(product.seats as number[]);
+  const [availableSeats, setAvailableSeats] = useState<number[]>(
+    product.seats as number[]
+  );
   const seatsKeys = Object.keys(seatsDesc);
   const seatsValues = Object.values(seatsDesc);
 
@@ -153,8 +155,10 @@ export default function Stadium({ product }: { product: Product }) {
   };
 
   return (
-    <div className="flex flex-col justify-center text-center p-6">
-      <h1>Seats Selection</h1>
+    <div className="flex flex-col justify-center w-80 mx-auto text-center py-3">
+      <h1 className="max-w-max mx-auto p-1 text-black font-bold bg-white border-b-4 border-r-4 border-black">
+        Seats Selection
+      </h1>
       <div className={styles.stadium}>
         {product.category === "sports" && (
           <div className={`${styles.field} ${styles.field_sports}`}></div>
@@ -287,28 +291,31 @@ export default function Stadium({ product }: { product: Product }) {
         </div>
       </div>
       <div>
-        <p>
-          Selected Seats: <strong>{selectedSeats}</strong>
-        </p>
-        <p>Seat: </p>
+        <div className="bg-black text-white border-b-4 border-r-4 border-lime-600">
+          <p>
+            Selected Seats:{" "}
+            <strong className="text-fuchsia-500">{selectedSeats}</strong>
+          </p>
+          <p>Seat: </p>
+        </div>
         {seatsKeys.map(
           (seat, i) =>
             seatsValues[i] > 0 && (
               <p
                 key={i}
-                className="grid grid-cols-6 content-center border border-slate-400"
+                className="p-2 grid grid-cols-6 content-center bg-black text-fuchsia-500 border-b-4 border-r-4 border-lime-600"
               >
                 <strong className="col-start-2 col-end-6 col-span-2">
-                  {seat} X{seatsValues[i]}
+                  &#9733;{seat} X{seatsValues[i]}&#9733;
                 </strong>
                 <span
-                  className="text-slate-400 cursor-pointer"
+                  className="max-w-max ms-4 px-2 bg-fuchsia-600 text-lime-500 shadow shadow-fuchsia-600 cursor-pointer hover:bg-lime-500 hover:text-fuchsia-500"
                   onClick={() => removeSeats(i)}
                 >
                   X
                 </span>
               </p>
-            ),
+            )
         )}
       </div>
       <AddToCart

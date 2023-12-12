@@ -16,7 +16,7 @@ export default function Price({
     if (product?.offer) {
       const priceCalc =
         Number(
-          (product.price - (product.offer / 100) * product.price).toFixed(2),
+          (product.price - (product.offer / 100) * product.price).toFixed(2)
         ) * (quantity || 1);
       return setPrice(priceCalc);
     } else {
@@ -31,14 +31,14 @@ export default function Price({
 
   return (
     <>
-      <span>{`$${price}`}</span>
-      <span className="text-lime-600">
+      <span className="font-bold text-2xl">{`$${price} `}</span>
+      <strong className="text-lime-300">
         {product?.offer ? `-${product.offer}%` : ""}
-      </span>
+      </strong>
       {"  "}
-      <span className="line-through">
+      <strong className="line-through font-bold">
         {product?.offer ? `$${product.price.toFixed(2)}` : ""}
-      </span>
+      </strong>
     </>
   );
 }

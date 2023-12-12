@@ -61,7 +61,7 @@ export default function CardPayment({
         description: `Name: ${session.user.name || ""}, Email: ${
           session.user.email || ""
         }, Cart: ${JSON.stringify(productsIds)}, Desc: ${JSON.stringify(
-          productsDesc,
+          productsDesc
         )}, Amounts: ${JSON.stringify(prices)}`,
         amount: amount,
       });
@@ -99,7 +99,7 @@ export default function CardPayment({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-25" />
+          <div className="fixed inset-0 bg-black bg-opacity-75" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -113,10 +113,10 @@ export default function CardPayment({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full max-w-md transform overflow-hidden bg-lime-600 p-6 text-left align-middle shadow-xl transition-all">
                 <button
                   type="submit"
-                  className="absolute right-4 top-4 text-gray-400 hover:text-gray-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8"
+                  className="absolute right-4 top-4 shadow shadow-black bg-fuchsia-500 text-lime-500 hover:text-fuchsia-500 hover:bg-lime-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8"
                   onClick={closeModal}
                 >
                   <span className="sr-only">Close</span>
@@ -124,18 +124,18 @@ export default function CardPayment({
                 </button>
                 <Dialog.Title
                   as="h3"
-                  className="text-xl text-center font-medium leading-6 text-gray-900 mt-3"
+                  className="max-w-max mx-auto text-xl text-center font-medium border-r-4 border-b-4 border-lime-500 bg-black leading-6 text-white mt-3 p-2"
                 >
-                  Complete payment
+                  Complete the payment
                 </Dialog.Title>
                 <div className="mt-6">
                   <form
-                    className="border-2 rounded-2xl border-slate-400 py-6 px-3"
+                    className="bg-white border-r-2 border-b-2 border-black py-6 px-3"
                     onSubmit={onSubmit}
                   >
                     {!succeeded && (
                       <>
-                        <h1 className="text-xl font-medium text-gray-400 my-2">
+                        <h1 className="text-xl font-medium text-black my-2">
                           Credit/Debit Card
                         </h1>
                         <CardElement
@@ -160,7 +160,7 @@ export default function CardPayment({
                     </p>
                     {!succeeded && (
                       <button
-                        className="mt-16 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        className="mt-16 flex w-full items-center justify-center shadow shadow-black rounded-md border-2 border-black bg-fuchsia-600 px-8 py-3 text-base font-bold text-lime-300 hover:bg-fuchsia-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 cursor-pointer"
                         disabled={processing || disabled}
                         type="submit"
                       >
