@@ -25,9 +25,9 @@ export default function FavoriteItem({ productId }: { productId: string }) {
           alt={product.imageAlt}
           width={500}
           height={500}
-          className="w-full border-2 border-lime-300"
+          className="w-full border-2 border-green-400"
         />
-        <div className="bg-lime-500 p-1 shadow-xl">
+        <div className="bg-green-600 p-1 shadow-xl">
           <Link
             href={`/${product.category}/${product._id}`}
             className="hover:underline"
@@ -36,11 +36,11 @@ export default function FavoriteItem({ productId }: { productId: string }) {
               {product.name} {product.date}
             </h3>
           </Link>
-          <h3 className="max-w-max mx-3 -mt-2 text-l font-bold text-white bg-black border-b-4 border-r-4 border-lime-600 ps-3 py-2 pr-12">
+          <h3 className="max-w-max mx-3 -mt-2 text-l font-bold text-white bg-black border-b-4 border-r-4 border-green-600 ps-3 py-2 pr-12">
             {product.searchParam}
           </h3>
         </div>
-        <p className="w-max text-lg font-medium shadow shadow-black rounded-md text-black bg-fuchsia-800 p-3 border-2 border-black">
+        <p className="w-max text-lg font-medium shadow shadow-black rounded-md text-pink-200 bg-pink-800 mx-auto p-3 border-2 border-black">
           <Price product={product} />
         </p>
       </div>

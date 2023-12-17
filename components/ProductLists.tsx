@@ -65,7 +65,7 @@ export default function ProductLists({
     <>
       <div>
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h3 className="bg-black text-white w-max p-3 border-b-4 border-r-4 border-lime-500 text-3xl sl:text-center m-6">
+          <h3 className="bg-black text-white w-max p-3 border-b-4 border-r-4 border-green-400 text-3xl sl:text-center m-6">
             {section.toLocaleUpperCase()}
           </h3>
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
@@ -86,7 +86,7 @@ export default function ProductLists({
                     <div key={product._id} className="flex flex-col">
                       <div
                         onClick={() => handleSetOpen(product)}
-                        className="aspect-h-1 aspect-w-1 w-full overflow-hidden border-2 border-lime-500 xl:aspect-h-8 xl:aspect-w-7 hover:opacity-90 cursor-pointer group"
+                        className="aspect-h-1 aspect-w-1 w-full overflow-hidden border-2 border-green-400 xl:aspect-h-8 xl:aspect-w-7 hover:opacity-90 cursor-pointer group"
                       >
                         <Image
                           src={product.imageSrc}
@@ -95,11 +95,11 @@ export default function ProductLists({
                           height={500}
                           className="h-full w-full object-cover object-center"
                         />
-                        <div className="flex justify-center items-center h-full w-full text-lime-100 text-xl font-bold invisible group-hover:visible">
-                          Click to quickview
+                        <div className="flex justify-center items-center h-full w-full text-pink-200 text-xl font-bold invisible group-hover:visible">
+                          <div className="bg-pink-600 p-2 rounded-lg shadow shadow-black">Click to quickview</div>
                         </div>
                       </div>
-                      <div className="bg-lime-500 p-1">
+                      <div className="bg-green-400 p-1">
                         <Link
                           href={`/${section}/${product._id}`}
                           className="text-black hover:underline"
@@ -111,11 +111,11 @@ export default function ProductLists({
                             </strong>
                           </h3>
                         </Link>
-                        <h3 className="w-max mx-3 -mt-2 text-l font-bold text-white bg-black border-b-4 border-r-4 border-lime-600 ps-3 py-2 pr-12">
+                        <h3 className="w-max mx-3 mt-0 text-l font-bold text-white bg-black border-b-4 border-r-4 border-green-600 ps-3 py-2 pr-12">
                           {product.searchParam}
                         </h3>
                       </div>
-                      <p className="w-max text-lg font-medium shadow shadow-black rounded-md text-black bg-fuchsia-800 p-3 border-2 border-black self-end">
+                      <p className="w-max text-lg font-medium shadow shadow-black rounded-md text-pink-200 bg-pink-800 p-3 border-2 border-black self-center">
                         <Price product={product} />
                       </p>
                     </div>

@@ -23,7 +23,7 @@ export default function CartItemList() {
           );
         })
       ) : (
-        <ShoppingCartIcon className="max-w-xs mx-auto text-lime-500" />
+        <ShoppingCartIcon className="max-w-xs mx-auto text-green-400" />
       )}
     </div>
   );

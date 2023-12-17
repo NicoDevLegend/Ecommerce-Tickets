@@ -8,7 +8,7 @@ export default function ClearCart() {
     cartProducts &&
     cartProducts?.products.length > 0 && (
       <TrashIcon
-        className="text-lime-300 h-8 w-8 ms-11 mb-3 cursor-pointer hover:text-fuchsia-600"
+        className="text-green-300 h-8 w-8 ms-11 mb-6 cursor-pointer hover:text-fuchsia-600"
         onClick={() => clearCart()}
       />
     )

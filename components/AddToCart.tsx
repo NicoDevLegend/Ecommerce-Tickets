@@ -32,7 +32,7 @@ export default function AddToCart({
   return (
     <button
       type="submit"
-      className="mt-6 flex w-full items-center justify-center rounded-md ont-bold shadow shadow-black border-2 border-black bg-fuchsia-500 px-8 py-3 text-base font-medium text-white hover:bg-fuchsia-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      className="mt-6 flex w-full items-center justify-center rounded-md font-bold shadow shadow-black border-2 border-black bg-pink-500 px-8 py-3 text-base text-white hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
       onClick={addProductAndRedirect}
       disabled={disabled}
     >

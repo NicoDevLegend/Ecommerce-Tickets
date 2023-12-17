@@ -30,16 +30,16 @@ const callouts = [
 export default function Previews() {
   return (
     <div>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 shadow shadow-lime-500">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 shadow shadow-pink-600">
         <div className="mx-auto max-w-2xl py-16 sm:py-12 lg:max-w-none lg:py-24">
-          <h2 className="bg-black border-r-4 border-b-4 border-lime-500 max-w-max p-6 text-3xl font-bold text-white">
+          <h2 className="bg-black border-r-4 border-b-4 border-green-400 max-w-max p-6 text-3xl font-bold text-white">
             &#9733; Upcoming Special Events &#9733;
           </h2>
 
-          <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+          <div className="my-12 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
             {callouts.map((callout) => (
               <div key={callout.name} className="group relative">
-                <div className="relative h-80 w-full overflow-hidden bg-white border-2 border-lime-300 sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-90 sm:h-64">
+                <div className="relative h-80 w-full overflow-hidden bg-white border-2 border-green-400 sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-90 sm:h-64">
                   <Image
                     src={callout.imageSrc}
                     alt={callout.imageAlt}
@@ -48,8 +48,8 @@ export default function Previews() {
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
-                <div className="mt-3 p-3 bg-black border-b-4 border-r-4 border-lime-500">
-                  <h3 className="mb-3 text-lg font-bold text-fuchsia-500">
+                <div className="h-auto mt-3 p-3 bg-black border-b-4 border-r-4 border-green-400">
+                  <h3 className="mb-3 text-lg font-bold text-pink-500">
                     <a href={callout.href}>
                       <span className="absolute inset-0" />
                       &#9733; {callout.name} &#9733;

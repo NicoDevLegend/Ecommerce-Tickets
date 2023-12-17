@@ -40,7 +40,7 @@ export default function SearchComponent() {
         <div className="relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="absolute top-0 bottom-0 w-6 h-6 my-auto text-fuchsia-600 left-3"
+            className="absolute top-0 bottom-0 w-6 h-6 my-auto text-pink-400 left-3"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -57,11 +57,11 @@ export default function SearchComponent() {
             value={value}
             placeholder="Search Event/Artist/Team"
             onChange={(event) => searchHandler(event)}
-            className="w-full py-3 pl-12 pr-4 text-black border rounded-md outline-none bg-fuchsia-300 focus:bg-fuchsia-200 focus:border-lime-600 placeholder:text-fuchsia-900"
+            className="w-full py-3 pl-12 pr-4 text-black font-bold rounded-md outline-none bg-white ring-1 ring-inset ring-green-400 focus:bg-pink-200 focus:border-green-400 placeholder:text-pink-400"
           />
           {value !== "" && (
             <XMarkIcon
-              className="absolute top-0 bottom-0 h-6 w-6 my-auto text-fuchsia-600 right-3 cursor-pointer"
+              className="absolute top-0 bottom-0 h-6 w-6 my-auto text-pink-200 right-3 cursor-pointer"
               aria-hidden="true"
               onClick={() => setValue("")}
             />
@@ -84,14 +84,14 @@ export default function SearchComponent() {
                       </p>
                       <Highlighter
                         searchWords={[value]}
-                        highlightClassName="font-bold bg-lime-300"
+                        highlightClassName="font-bold bg-green-300"
                         className="font-bold"
                         textToHighlight={product.name}
                       />
                       <br />
                       <Highlighter
                         searchWords={[value]}
-                        highlightClassName="font-bold bg-lime-300 text-black"
+                        highlightClassName="font-bold bg-green-300 text-black"
                         className="text-sm text-gray-500"
                         textToHighlight={product.searchParam}
                         autoEscape={true}

@@ -32,13 +32,13 @@ export default function Product() {
           <nav aria-label="Breadcrumb">
             <ol
               role="list"
-              className="max-w-max bg-black text-white border-r-2 border-b-2 border-lime-500 ms-6 flex items-center space-x-2 p-2"
+              className="max-w-max bg-black text-white border-r-2 border-b-2 border-green-400 ms-6 flex items-center space-x-2 p-2"
             >
               <li>
                 <div className="flex items-center">
                   <Link
                     href={`/${section}`}
-                    className="mr-2 text-sm font-medium"
+                    className="mr-2 text-sm font-medium hover:text-green-400"
                   >
                     {section.toString().toUpperCase()}
                   </Link>
@@ -54,7 +54,7 @@ export default function Product() {
                   </svg>
                 </div>
               </li>
-              <li className="font-medium hover:text-lime-500 text-sm">
+              <li className="font-medium hover:text-green-400 text-sm cursor-pointer">
                 {product.name}
               </li>
             </ol>
@@ -62,7 +62,7 @@ export default function Product() {
 
           {/* Image gallery */}
           <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-            <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden border border-lime-500 rounded-lg lg:block">
+            <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden border border-green-400 rounded-lg lg:block">
               <Image
                 src={product.imageSrc || "https://placeholder.pics/svg/"}
                 alt={product.imageAlt || "Product image"}
@@ -72,7 +72,7 @@ export default function Product() {
               />
             </div>
             <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-              <div className="aspect-h-2 aspect-w-3 overflow-hidden border border-lime-500 rounded-lg">
+              <div className="aspect-h-2 aspect-w-3 overflow-hidden border border-green-400 rounded-lg">
                 <Image
                   src={product.imageSrc || "https://placeholder.pics/svg/"}
                   alt={product.imageAlt || "Product image"}
@@ -81,7 +81,7 @@ export default function Product() {
                   className="h-full w-full object-cover object-center"
                 />
               </div>
-              <div className="aspect-h-2 aspect-w-3 overflow-hidden border border-lime-500 rounded-lg">
+              <div className="aspect-h-2 aspect-w-3 overflow-hidden border border-green-400 rounded-lg">
                 <Image
                   src={product.imageSrc || "https://placeholder.pics/svg/"}
                   alt={product.imageAlt || "Product image"}
@@ -91,7 +91,7 @@ export default function Product() {
                 />
               </div>
             </div>
-            <div className="aspect-h-5 aspect-w-4 border border-lime-500 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
+            <div className="aspect-h-5 aspect-w-4 border border-green-400 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
               <Image
                 src={product.imageSrc || "https://placeholder.pics/svg/"}
                 alt={product.imageAlt || "Product image"}
@@ -118,7 +118,7 @@ export default function Product() {
             {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
-              <p className="w-max p-3 text-lg font-medium shadow shadow-black rounded-md text-black bg-fuchsia-800">
+              <p className="w-max p-3 text-lg font-medium shadow shadow-black rounded-md text-pink-200 bg-pink-800">
                 <Price product={product} />
               </p>
 
@@ -132,8 +132,8 @@ export default function Product() {
                         key={rating}
                         className={classNames(
                           product.rating > rating
-                            ? "text-fuchsia-500"
-                            : "text-lime-500",
+                            ? "text-pink-600"
+                            : "text-green-400",
                           "h-5 w-5 flex-shrink-0"
                         )}
                         aria-hidden="true"
@@ -143,7 +143,7 @@ export default function Product() {
                   <p className="sr-only">{product.rating} out of 5 stars</p>
                   <a
                     href="#"
-                    className="ml-3 p-1 text-sm font-medium text-white bg-black border-b-4 border-r-4 border-lime-500 hover:text-lime-500"
+                    className="ml-3 p-1 text-sm font-medium text-white bg-black border-b-4 border-r-4 border-green-400 hover:text-green-400"
                   >
                     {product.reviewCount} reviews
                   </a>
@@ -166,7 +166,7 @@ export default function Product() {
                 <h3 className="sr-only">Description</h3>
 
                 <div className="space-y-6">
-                  <p className="w-full h-full min-h-screen mx-auto text-l font-bold text-white bg-black border-b-4 border-r-4 border-lime-600 p-12">
+                  <p className="w-full h-full min-h-screen mx-auto text-l font-bold text-white bg-black border-b-4 border-r-4 border-green-600 p-12">
                     -Description-
                     <br></br>
                     <strong>{product.searchParam}</strong>

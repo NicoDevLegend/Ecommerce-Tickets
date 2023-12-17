@@ -49,10 +49,10 @@ export default function LoginForm() {
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-      <div className="bg-lime-600 shadow-sm mb-20 mx-auto p-6">
+      <div className="bg-green-400 shadow-sm mb-20 mx-auto p-6">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Logo />
-          <h2 className="bg-black text-white w-max mt-6 p-3 border-b-4 border-r-4 border-lime-500 text-3xl sl:text-center mx-auto">
+          <h2 className="bg-black text-white w-max mt-6 p-3 border-b-4 border-r-4 border-green-600 text-3xl sl:text-center mx-auto">
             Sign in to your account
           </h2>
         </div>
@@ -74,7 +74,7 @@ export default function LoginForm() {
                   autoComplete="email"
                   required
                   onChange={(e) => setEmail(e.target.value)}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-green-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -104,7 +104,7 @@ export default function LoginForm() {
                   autoComplete="current-password"
                   required
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-green-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -117,21 +117,21 @@ export default function LoginForm() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md shadow shadow-black border-2 border-black bg-fuchsia-600 px-3 py-1.5 text-sm font-bold leading-6 text-lime-200 shadow-sm hover:bg-fuchsia-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex w-full justify-center rounded-md shadow shadow-black border-2 border-black bg-pink-800 px-3 py-1.5 text-lg font-bold leading-6 text-pink-200 shadow-sm hover:bg-pink-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 disabled={!session ? false : true}
               >
                 {!loading && !session ? (
                   <p>Sign in</p>
                 ) : (
                   <div className="grid justify-center">
-                    <div className="border-fuchsia-200 h-6 w-6 animate-spin rounded-full border-2 border-t-fuchsia-400" />
+                    <div className="border-pink-200 h-6 w-6 animate-spin rounded-full border-2 border-t-pink-400" />
                   </div>
                 )}
               </button>
             </div>
           </form>
           <div className="flex flex-col">
-            <p className="mx-auto my-6 text-lime-200">- or -</p>
+            <p className="mx-auto my-6 text-green-200">- or -</p>
             <GoogleProviderButton
               onClick={() => signIn("google", { callbackUrl: "/" })}
             />
@@ -140,7 +140,7 @@ export default function LoginForm() {
             {"Don't have an account?"}{" "}
             <Link
               href="/register"
-              className="font-semibold leading-6 text-lime-800 hover:text-lime-600 italic underline"
+              className="font-semibold leading-6 text-green-800 hover:text-green-600 italic underline"
             >
               Register here
             </Link>

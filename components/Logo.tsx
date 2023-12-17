@@ -8,7 +8,7 @@ export default function Logo() {
       alt="icon"
       width={60}
       height={60}
-      className="mx-auto text-fuchsia-600"
+      className="mx-auto text-pink-600"
     />
   );
 }

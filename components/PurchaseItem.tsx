@@ -45,7 +45,7 @@ export default function PurchaseItem({
         return (
           <div
             key={index}
-            className="bg-lime-600 shadow shadow-md space-y-0.5 p-6"
+            className="bg-green-400 shadow shadow-md space-y-0.5 p-6"
           >
             <p className="max-w-max bg-white p-3 border-b-4 border-r-4 border-black font-bold text-black">
               {purchase.date}
@@ -55,7 +55,7 @@ export default function PurchaseItem({
               alt={p.imageAlt}
               width={500}
               height={500}
-              className="w-full min-w-mim border-2 border-lime-300"
+              className="w-full min-w-mim border-2 border-green-600"
             />
             <Link href={`/${p.category}/${p._id}`} className="hover:underline">
               <h3 className="min-w-min bg-white p-3 mt-3 border-b-4 border-r-4 border-black font-bold text-black">
@@ -63,7 +63,7 @@ export default function PurchaseItem({
               </h3>
             </Link>
             <SeatsDescription desc={purchase.products[index].desc} />
-            <p className="w-max p-3 text-lg font-bold shadow shadow-black rounded-md text-black bg-fuchsia-800">
+            <p className="w-max mx-auto p-3 text-lg font-bold shadow shadow-black rounded-md text-pink-200 bg-pink-800">
               ${prices[index]}
             </p>
           </div>

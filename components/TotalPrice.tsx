@@ -72,7 +72,7 @@ export default function TotalPrice() {
           </div>
         </div>
         <button
-          className="mt-6 w-full shadow shadow-black rounded-md bg-fuchsia-600 border-2 border-black py-1.5 font-bold text-lime-300 hover:bg-fuchsia-800"
+          className="mt-6 w-full shadow shadow-black rounded-md bg-pink-800 border-2 border-black py-1.5 font-bold text-pink-200 hover:bg-pink-600"
           onClick={openModal}
         >
           Check out

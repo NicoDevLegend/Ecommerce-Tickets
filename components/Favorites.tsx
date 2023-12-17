@@ -26,7 +26,7 @@ export default function Favorites() {
 
   return (
     <div>
-      <h1 className="bg-black text-white w-max p-3 border-b-4 border-r-4 border-lime-500 text-3xl sl:text-center m-6">
+      <h1 className="bg-black text-white w-max p-3 border-b-4 border-r-4 border-green-400 text-3xl sl:text-center m-6">
         Favorites
       </h1>
       {favorites && favorites.length > 0 ? (
@@ -34,7 +34,7 @@ export default function Favorites() {
           return <FavoriteItem key={index} productId={f.productId} />;
         })
       ) : (
-        <StarIcon className="max-w-xs mx-auto text-lime-500 mb-20" />
+        <StarIcon className="max-w-xs mx-auto text-green-400 mb-20" />
       )}
     </div>
   );

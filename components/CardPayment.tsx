@@ -113,10 +113,10 @@ export default function CardPayment({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-md transform overflow-hidden bg-lime-600 p-6 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full max-w-md transform rounded-md overflow-hidden bg-green-600 p-6 text-left align-middle shadow-xl transition-all">
                 <button
                   type="submit"
-                  className="absolute right-4 top-4 shadow shadow-black bg-fuchsia-500 text-lime-500 hover:text-fuchsia-500 hover:bg-lime-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8"
+                  className="absolute right-4 top-4 shadow shadow-black bg-pink-800 text-pink-200 hover:text-pink-600 hover:bg-green-400 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8"
                   onClick={closeModal}
                 >
                   <span className="sr-only">Close</span>
@@ -124,7 +124,7 @@ export default function CardPayment({
                 </button>
                 <Dialog.Title
                   as="h3"
-                  className="max-w-max mx-auto text-xl text-center font-medium border-r-4 border-b-4 border-lime-500 bg-black leading-6 text-white mt-3 p-2"
+                  className="max-w-max mx-auto text-xl text-center font-medium border-r-4 border-b-4 border-green-500 bg-black leading-6 text-white mt-3 p-2"
                 >
                   Complete the payment
                 </Dialog.Title>
@@ -160,7 +160,7 @@ export default function CardPayment({
                     </p>
                     {!succeeded && (
                       <button
-                        className="mt-16 flex w-full items-center justify-center shadow shadow-black rounded-md border-2 border-black bg-fuchsia-600 px-8 py-3 text-base font-bold text-lime-300 hover:bg-fuchsia-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 cursor-pointer"
+                        className="mt-16 flex w-full items-center justify-center shadow shadow-black rounded-md border-2 border-black bg-pink-800 px-8 py-3 text-base font-bold text-pink-200 hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 cursor-pointer"
                         disabled={processing || disabled}
                         type="submit"
                       >

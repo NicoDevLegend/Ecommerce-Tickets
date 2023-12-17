@@ -49,10 +49,10 @@ export default function ProductQuickviews({
                 leaveTo="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
               >
                 <Dialog.Panel className="flex w-full transform text-left text-base transition md:my-8 md:max-w-2xl md:px-4 lg:max-w-4xl">
-                  <div className="relative flex w-full min-w-min items-center overflow-auto bg-lime-600 px-4 pb-8 pt-14 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
+                  <div className="relative flex w-full min-w-min items-center overflow-auto bg-green-600 px-4 pb-8 pt-14 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
                     <button
                       type="button"
-                      className="absolute shadow shadow-black right-4 top-4 bg-fuchsia-600 text-lime-500 hover:text-fuchsia-500 hover:bg-lime-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8"
+                      className="absolute shadow shadow-black right-4 top-4 bg-pink-600 text-green-400 hover:text-pink-500 hover:bg-green-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8"
                       onClick={onClose}
                     >
                       <span className="sr-only">Close</span>
@@ -60,7 +60,7 @@ export default function ProductQuickviews({
                     </button>
 
                     <div className="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
-                      <div className="aspect-h-3 aspect-w-2 overflow-hidden border border-lime-500 rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5">
+                      <div className="aspect-h-3 aspect-w-2 overflow-hidden border border-green-500 rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5">
                         <Image
                           src={product.imageSrc}
                           alt={product.imageAlt}
@@ -87,7 +87,7 @@ export default function ProductQuickviews({
                           <h3 id="information-heading" className="sr-only">
                             Product information
                           </h3>
-                          <p className="w-max p-3 text-lg font-medium shadow shadow-black rounded-md text-black bg-fuchsia-500">
+                          <p className="w-max p-3 text-lg font-medium shadow shadow-black rounded-md text-pink-200 bg-pink-500">
                             <Price product={product} />
                           </p>
 
@@ -101,8 +101,8 @@ export default function ProductQuickviews({
                                     key={rating}
                                     className={classNames(
                                       product.rating > rating
-                                        ? "text-fuchsia-500"
-                                        : "text-lime-500",
+                                        ? "text-pink-500"
+                                        : "text-green-500",
                                       "h-5 w-5 flex-shrink-0"
                                     )}
                                     aria-hidden="true"
@@ -114,7 +114,7 @@ export default function ProductQuickviews({
                               </p>
                               <a
                                 href="#"
-                                className="ml-3 p-1 text-sm font-medium text-white bg-black border-b-4 border-r-4 border-lime-500 hover:text-lime-500"
+                                className="ml-3 p-1 text-sm font-medium text-white bg-black border-b-4 border-r-4 border-green-500 hover:text-green-500"
                               >
                                 {product.reviewCount} reviews
                               </a>
@@ -124,7 +124,7 @@ export default function ProductQuickviews({
 
                         <section
                           aria-labelledby="options-heading"
-                          className="min-w-min mt-10 p-1 bg-lime-500"
+                          className="min-w-min mt-10 p-1 bg-green-500"
                         >
                           <h3 id="options-heading" className="sr-only">
                             Product options

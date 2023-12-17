@@ -32,7 +32,7 @@ export default function Price({
   return (
     <>
       <span className="font-bold text-2xl">{`$${price} `}</span>
-      <strong className="text-lime-300">
+      <strong className="text-green-400">
         {product?.offer ? `-${product.offer}%` : ""}
       </strong>
       {"  "}

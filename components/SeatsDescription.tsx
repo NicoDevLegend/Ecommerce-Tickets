@@ -18,10 +18,10 @@ export default function SeatsDescription({ desc }: { desc: [] | {} }) {
   }, [desc]);
 
   return (
-    <div className="bg-black text-white border-b-4 border-r-4 border-lime-500 p-6">
+    <div className="bg-black text-white border-b-4 border-r-4 border-green-400 p-6">
       <p className="mb-3 text-lg underline">Seats:</p>
       {seatsDesc.map((s, i) => (
-        <li key={i} className="mb-2 font-bold text-fuchsia-600 list-none">
+        <li key={i} className="mb-2 font-bold text-pink-600 list-none">
           &#9733; {s}
         </li>
       ))}

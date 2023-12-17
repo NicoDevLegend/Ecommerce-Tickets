@@ -23,14 +23,14 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <Disclosure as="nav" className="bg-lime-600">
+    <Disclosure as="nav" className="bg-green-400">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="relative inline-flex items-center justify-center shadow shadow-black rounded-md border-2 border-black p-2 text-lime-500 bg-fuchsia-500 hover:bg-lime-600 hover:text-fuchsia-500 focus:outline-none focus:ring-2 focus:ring-inset">
+                <Disclosure.Button className="relative inline-flex items-center justify-center shadow shadow-black rounded-md border-2 border-black p-2 text-green-400 bg-pink-600 hover:bg-green-600 hover:text-pink-400 focus:outline-none focus:ring-2 focus:ring-inset">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -53,7 +53,7 @@ export default function Header() {
                         className={classNames(
                           item.href === `/${params.section}` ||
                             item.href === pathname
-                            ? "bg-black text-white border-lime-600"
+                            ? "bg-black text-white border-green-600"
                             : "bg-white text-black border-black hover:bg-black hover:text-white",
                           "border-b-4 border-r-4 px-3 py-2 text-sm font-bold"
                         )}
@@ -84,7 +84,7 @@ export default function Header() {
                   href={item.href}
                   className={classNames(
                     item.href === `/${params.section}` || item.href === pathname
-                      ? "bg-black text-white border-r-lime-600 border-b-lime-600"
+                      ? "bg-black text-white border-r-green-600 border-b-green-600"
                       : "bg-white text-black border-r-black border-b-black hover:bg-black hover:text-white",
                     "border-b-4 border-r-4 block px-3 py-2 text-base font-medium"
                   )}

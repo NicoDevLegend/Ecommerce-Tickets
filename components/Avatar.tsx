@@ -25,7 +25,7 @@ export default function Avatar({ classNames }: { classNames: any }) {
   return (
     <Menu as="div" className="relative ml-3">
       <div>
-        <Menu.Button className="relative flex shadow shadow-black rounded-full bg-fuchsia-500 border-2 border-black text-sm text-black hover:text-lime-600 focus:outline-none focus:ring-2 focus:ring-lime-600 focus:ring-offset-2 focus:ring-offset-lime-600">
+        <Menu.Button className="relative flex shadow shadow-black rounded-full bg-pink-800 border-2 border-black text-sm text-pink-200 hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-lime-600 focus:ring-offset-2 focus:ring-offset-lime-600">
           <span className="absolute -inset-1.5" />
           <span className="sr-only">Open user menu</span>
           {session && session.user ? (
