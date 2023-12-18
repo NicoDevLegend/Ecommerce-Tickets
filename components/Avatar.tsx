@@ -50,7 +50,7 @@ export default function Avatar({ classNames }: { classNames: any }) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-10 border-r-2 border-b-2 border-black mt-2 w-48 origin-top-right bg-white py-1 shadow-lg ring-1 ring-lime-600 ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 z-10 border-r-4 border-b-4 border-black mt-2 w-48 origin-top-right bg-white py-1 shadow-lg ring-1 ring-lime-600 ring-opacity-5 focus:outline-none">
           {session && session.user && (
             <span className="flex flex-col px-4 text-lg text-black mb-2">
               <small>Signed in as:</small>

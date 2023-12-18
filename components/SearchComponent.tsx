@@ -57,7 +57,7 @@ export default function SearchComponent() {
             value={value}
             placeholder="Search Event/Artist/Team"
             onChange={(event) => searchHandler(event)}
-            className="w-full py-3 pl-12 pr-4 text-black font-bold rounded-md outline-none bg-white ring-1 ring-inset ring-green-400 focus:bg-pink-200 focus:border-green-400 placeholder:text-pink-400"
+            className="w-full py-3 pl-12 pr-4 text-black font-bold rounded-md outline-none bg-pink-200 ring-1 ring-inset ring-pink-400 focus:border-pink-400 placeholder:text-pink-400"
           />
           {value !== "" && (
             <XMarkIcon
