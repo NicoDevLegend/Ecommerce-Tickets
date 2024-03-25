@@ -61,12 +61,12 @@ export default function SearchComponent() {
           />
           {value !== "" && (
             <XMarkIcon
-              className="absolute top-0 bottom-0 h-6 w-6 my-auto text-pink-200 right-3 cursor-pointer"
+              className="absolute top-0 bottom-0 h-6 w-6 my-auto text-pink-600 right-3 cursor-pointer"
               aria-hidden="true"
               onClick={() => setValue("")}
             />
           )}
-          {products && value !== "Search Event/Artist/Team" && (
+          {products && value !== "" && (
             <div className="absolute w-full max-h-52 overflow-y-auto z-50">
               {products.map((product: Product) => {
                 return (
