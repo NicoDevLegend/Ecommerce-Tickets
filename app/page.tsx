@@ -1,6 +1,9 @@
 import Previews from "../components/Previews";
 import OffersSection from "../components/OffersSection";
 
+export const dynamic = "force-dynamic";
+export const runtime = "edge";
+
 export default function Home() {
   return (
     <div>
