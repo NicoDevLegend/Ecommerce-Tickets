@@ -14,8 +14,7 @@ const SignInButton = () => {
       <button
         onClick={() =>
           signOut({
-            callbackUrl:
-              "https://vigilant-yodel-q77w9qxw55gcxp4x-3000.app.github.dev/login",
+            callbackUrl: process.env.NEXTAUTH_URL,
           })
         }
         className="flex px-4 py-2 mx-4 my-2 text-md text-black"

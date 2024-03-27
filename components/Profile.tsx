@@ -9,7 +9,7 @@ export default function Profile() {
     <form>
       <div className="space-y-12 p-6 max-w-xl mx-auto">
         <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="bg-white text-black font-bold w-max p-3 border-b-4 border-r-4 border-black text-3xl sl:text-center mx-auto">
+          <h2 className="bg-white text-black font-bold w-max p-3 text-3xl sl:text-center mx-auto">
             PROFILE
           </h2>
           <p className="text-sm font-bold bg-black text-white max-w-max p-3 border-b-4 border-r-4 border-green-400 sl:text-center m-6">
@@ -17,12 +17,12 @@ export default function Profile() {
             share.
           </p>
 
-          <div className="shadow-sm bg-green-400 p-6">
+          <div className="shadow-sm bg-green-400 rounded rounded-md border border-pink-600 p-6">
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="col-span-full mt-10 mx-auto">
                 <label
                   htmlFor="photo"
-                  className="block text-sm font-bold leading-6 text-green-600"
+                  className="block text-sm font-bold leading-6 text-pink-900"
                 >
                   Photo
                 </label>
@@ -46,7 +46,7 @@ export default function Profile() {
               <div className="sm:col-span-4">
                 <label
                   htmlFor="username"
-                  className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                  className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
                 >
                   Username
                 </label>
@@ -68,7 +68,7 @@ export default function Profile() {
             <div className="col-span-full">
               <label
                 htmlFor="about"
-                className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
               >
                 About
               </label>
@@ -81,13 +81,13 @@ export default function Profile() {
                   defaultValue={""}
                 />
               </div>
-              <p className="mt-3 mb-6 text-sm leading-6 text-lime-200">
+              <p className="mt-3 mb-6 text-sm font-bold leading-6 text-pink-900">
                 Write a few sentences about yourself.
               </p>
             </div>
 
-            <div className="border-b border-gray-900/10 pb-12">
-              <h2 className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center">
+            <div className="mt-5 border-b border-gray-900/10 pb-12">
+              <h2 className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center">
                 Personal Information
               </h2>
 
@@ -95,7 +95,7 @@ export default function Profile() {
                 <div className="sm:col-span-3">
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
                   >
                     First name
                   </label>
@@ -114,7 +114,7 @@ export default function Profile() {
                 <div className="sm:col-span-3">
                   <label
                     htmlFor="last-name"
-                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
                   >
                     Last name
                   </label>
@@ -132,7 +132,7 @@ export default function Profile() {
                 <div className="sm:col-span-4">
                   <label
                     htmlFor="email"
-                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
                   >
                     Email address
                   </label>
@@ -152,7 +152,7 @@ export default function Profile() {
                 <div className="col-span-full">
                   <label
                     htmlFor="street-address"
-                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
                   >
                     Country
                   </label>
@@ -170,7 +170,7 @@ export default function Profile() {
                 <div className="col-span-full">
                   <label
                     htmlFor="street-address"
-                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
                   >
                     Street address
                   </label>
@@ -188,7 +188,7 @@ export default function Profile() {
                 <div className="sm:col-span-2 sm:col-start-1">
                   <label
                     htmlFor="city"
-                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
                   >
                     City
                   </label>
@@ -206,7 +206,7 @@ export default function Profile() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="region"
-                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                    className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
                   >
                     State / Province
                   </label>

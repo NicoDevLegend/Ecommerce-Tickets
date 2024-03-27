@@ -49,7 +49,7 @@ export default function LoginForm() {
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-      <div className="bg-green-400 shadow-sm mb-20 mx-auto p-6">
+      <div className="bg-green-400 rounded rounded-md border border-pink-400 shadow-sm mb-20 mx-auto p-6">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Logo />
           <h2 className="bg-black text-white w-max mt-6 p-3 border-b-4 border-r-4 border-green-600 text-3xl sl:text-center mx-auto">
@@ -62,7 +62,7 @@ export default function LoginForm() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
               >
                 Email address
               </label>
@@ -83,7 +83,7 @@ export default function LoginForm() {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                  className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
                 >
                   Password
                 </label>
@@ -131,12 +131,12 @@ export default function LoginForm() {
             </div>
           </form>
           <div className="flex flex-col">
-            <p className="mx-auto my-6 text-green-200">- or -</p>
+            <p className="mx-auto my-6 text-pink-900 font-bold">- or -</p>
             <GoogleProviderButton
               onClick={() => signIn("google", { callbackUrl: "/" })}
             />
           </div>
-          <p className="mt-10 block text-sm font-bold leading-6 bg-white text-black max-w-max mx-auto p-2 border-b-4 border-r-4 border-black sl:text-center">
+          <p className="mt-10 block text-sm font-bold leading-6 bg-white text-black max-w-max mx-auto p-2 sl:text-center">
             {"Don't have an account?"}{" "}
             <Link
               href="/register"

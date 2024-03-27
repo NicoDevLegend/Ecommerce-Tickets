@@ -156,7 +156,7 @@ export default function Stadium({ product }: { product: Product }) {
 
   return (
     <div className="flex flex-col justify-center w-80 mx-auto text-center py-3">
-      <h1 className="max-w-max mx-auto p-1 text-black font-bold bg-white border-b-4 border-r-4 border-black">
+      <h1 className="max-w-max mx-auto p-1 text-black font-bold bg-white">
         Seats Selection
       </h1>
       <div className={styles.stadium}>

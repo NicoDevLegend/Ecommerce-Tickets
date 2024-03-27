@@ -113,7 +113,7 @@ export default function CardPayment({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-md transform rounded-md overflow-hidden bg-green-600 p-6 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full max-w-md transform rounded-md overflow-hidden bg-green-400 p-6 text-left align-middle shadow-xl transition-all">
                 <button
                   type="submit"
                   className="absolute right-4 top-4 shadow shadow-black bg-pink-800 text-pink-200 hover:text-pink-600 hover:bg-green-400 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8"
@@ -124,7 +124,7 @@ export default function CardPayment({
                 </button>
                 <Dialog.Title
                   as="h3"
-                  className="max-w-max mx-auto text-xl text-center font-medium border-r-4 border-b-4 border-green-500 bg-black leading-6 text-white mt-3 p-2"
+                  className="max-w-max mx-auto text-xl text-center font-medium border-r-4 border-b-4 border-green-600 bg-black leading-6 text-white mt-3 p-2"
                 >
                   Complete the payment
                 </Dialog.Title>

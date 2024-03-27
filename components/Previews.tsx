@@ -47,7 +47,7 @@ export default function Previews() {
                   className="h-full w-full object-cover object-center"
                 />
               </div>
-              <div className="h-auto mt-3 p-3 bg-black border-b-4 border-r-4 border-green-400">
+              <div className="h-auto mt-1 p-3 bg-black border-b-4 border-r-4 border-green-400">
                 <h3 className="mb-3 text-lg font-bold text-pink-500">
                   <a href={callout.href}>
                     <span className="absolute inset-0" />

@@ -106,7 +106,7 @@ export default function Product() {
           <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
             <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
               <h1 className="text-2xl grid grid-cols-2 font-bold tracking-tight text-gray-900 sm:text-3xl">
-                <span className="min-w-min bg-white p-3 border-b-4 border-r-4 border-black text-2xl font-bold text-gray-900">
+                <span className="min-w-min w-full bg-white p-3 text-2xl font-bold text-gray-900">
                   {product.name} {product.date}
                 </span>
                 <span>
@@ -118,7 +118,7 @@ export default function Product() {
             {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
-              <p className="w-max p-3 text-lg font-medium shadow shadow-black rounded-md text-pink-200 bg-pink-800">
+              <p className="w-max p-3 text-lg font-medium shadow shadow-black text-pink-200 bg-pink-800">
                 <Price product={product} />
               </p>
 
@@ -150,7 +150,7 @@ export default function Product() {
                 </div>
               </div>
               <br></br>
-              <p className="bg-white text-black p-3 border-b-4 border-r-4 border-black">
+              <p className="bg-white text-black p-3">
                 Available: {product.quantity}
               </p>
               {product.quantity > 100 ? (
@@ -166,7 +166,7 @@ export default function Product() {
                 <h3 className="sr-only">Description</h3>
 
                 <div className="space-y-6">
-                  <p className="w-full h-full min-h-screen mx-auto text-l font-bold text-white bg-black border-b-4 border-r-4 border-green-600 p-12">
+                  <p className="w-full h-full min-h-screen mx-auto text-l font-bold bg-green-200 text-pink-900 border-b-4 border-r-4 border-green-600 p-12">
                     -Description-
                     <br></br>
                     <strong>{product.searchParam}</strong>

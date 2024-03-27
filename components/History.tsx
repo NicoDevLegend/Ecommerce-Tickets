@@ -34,7 +34,7 @@ export default function History() {
             className="justify-between mb-6 bg-transparent p-6 sm:flex sm:justify-center"
           >
             <PurchaseItem purchase={p} prices={p.prices} />
-            <p className="max-w-max h-min p-3 text-xl font-bold shadow shadow-black rounded-md text-pink-200 bg-pink-800">
+            <p className="max-w-max h-min p-3 m-auto text-xl font-bold shadow shadow-black text-pink-200 bg-pink-800 sm:m-0">
               TOTAL ${p.totalPrice}
             </p>
           </div>

@@ -46,7 +46,7 @@ export default function AddToFavorites({ productId }: { productId: string }) {
       <div className="grid justify-items-end mr-12 mt-6">
         {!isFavorite ? (
           <StarIcon
-            className="h-10 w-10 cursor-pointer mb-6 text-green-400"
+            className="h-10 w-10 cursor-pointer mb-6 text-pink-600"
             onClick={addToFavorite}
           />
         ) : (

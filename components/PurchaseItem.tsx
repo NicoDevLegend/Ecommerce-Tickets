@@ -45,25 +45,33 @@ export default function PurchaseItem({
         return (
           <div
             key={index}
-            className="bg-green-400 shadow shadow-md space-y-0.5 p-6"
+            className="bg-green-400 rounded rounded-md border border-pink-600 shadow shadow-md space-y-0.5 p-6"
           >
-            <p className="max-w-max bg-white p-3 border-b-4 border-r-4 border-black font-bold text-black">
+            <p className="max-w-max bg-white p-3 font-bold text-black mb-5">
               {purchase.date}
             </p>
-            <Image
-              src={p.imageSrc}
-              alt={p.imageAlt}
-              width={500}
-              height={500}
-              className="w-full min-w-mim border-2 border-green-600"
-            />
-            <Link href={`/${p.category}/${p._id}`} className="hover:underline">
-              <h3 className="min-w-min bg-white p-3 mt-3 border-b-4 border-r-4 border-black font-bold text-black">
-                {p.name} <span>X{quantity}</span>
-              </h3>
-            </Link>
-            <SeatsDescription desc={purchase.products[index].desc} />
-            <p className="w-max mx-auto p-3 text-lg font-bold shadow shadow-black rounded-md text-pink-200 bg-pink-800">
+            <div className="flex flex-col w-full justify-center md:flex-row">
+              <Image
+                src={p.imageSrc}
+                alt={p.imageAlt}
+                width={500}
+                height={500}
+                className="w-24 h-20 border border-pink-600 mx-auto md:mb-0"
+              />
+              <Link
+                href={`/${p.category}/${p._id}`}
+                className="min-w-min w-full bg-white p-3 mt-3 hover:underline md:mt-0"
+              >
+                <h3 className="font-bold text-black">
+                  {p.name}{" "}
+                  <span className="text-pink-600">- X{quantity} -</span>
+                </h3>
+              </Link>
+            </div>
+            <div className="flex flex-col justify-center mt-2">
+              <SeatsDescription desc={purchase.products[index].desc} />
+            </div>
+            <p className="w-max mx-auto p-3 text-lg font-bold shadow shadow-black text-pink-200 bg-pink-800">
               ${prices[index]}
             </p>
           </div>

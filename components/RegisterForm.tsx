@@ -46,7 +46,7 @@ export default function RegisterForm() {
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-      <div className="bg-green-400 shadow-sm mb-20 mx-auto p-6">
+      <div className="bg-green-400 rounded rounded-md border border-pink-400 shadow-sm mb-20 mx-auto p-6">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Logo />
           <h2 className="bg-black text-white w-max mt-6 py-3 px-6 border-b-4 border-r-4 border-green-600 text-3xl sl:text-center mx-auto">
@@ -59,7 +59,7 @@ export default function RegisterForm() {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
               >
                 Name
               </label>
@@ -79,7 +79,7 @@ export default function RegisterForm() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
               >
                 Email address
               </label>
@@ -100,7 +100,7 @@ export default function RegisterForm() {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 border-b-4 border-r-4 border-black sl:text-center"
+                  className="block text-sm font-bold leading-6 bg-white text-black max-w-max p-1 sl:text-center"
                 >
                   Password
                 </label>
@@ -142,7 +142,7 @@ export default function RegisterForm() {
             </div>
           </form>
 
-          <p className="mt-10 block text-sm font-bold leading-6 bg-white text-black max-w-max mx-auto p-2 border-b-4 border-r-4 border-black sl:text-center">
+          <p className="mt-10 block text-sm font-bold leading-6 bg-white text-black max-w-max mx-auto p-2 sl:text-center">
             {"Already have an account?"}{" "}
             <Link
               href="/login"

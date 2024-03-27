@@ -86,26 +86,26 @@ export default function ProductLists({
                     <div key={product._id} className="flex flex-col">
                       <div
                         onClick={() => handleSetOpen(product)}
-                        className="aspect-h-1 aspect-w-1 w-full overflow-hidden border-2 border-green-400 xl:aspect-h-8 xl:aspect-w-7 hover:opacity-90 cursor-pointer group"
+                        className="aspect-h-1 aspect-w-1 w-full overflow-hidden border border-b-0 border-pink-400 xl:aspect-h-8 xl:aspect-w-7 hover:opacity-90 cursor-pointer group"
                       >
                         <Image
                           src={product.imageSrc}
                           alt={product.imageAlt}
                           width={500}
                           height={500}
-                          className="h-full w-full object-cover object-center"
+                          className="h-full w-full object-cover rounded rounded-md rounded-b-none object-center"
                         />
                         <div className="flex justify-center items-center h-full w-full text-pink-200 text-xl font-bold invisible group-hover:visible">
                           <div className="bg-pink-600 p-2 rounded-lg shadow shadow-black">Click to quickview</div>
                         </div>
                       </div>
-                      <div className="bg-green-400 p-1">
+                      <div className="bg-green-400 pb-3 shadow-md rounded rounded-md rounded-t-none border border-t-0 border-pink-400">
                         <Link
                           href={`/${section}/${product._id}`}
                           className="text-black hover:underline"
                           onClick={() => postProductReviews(product)}
                         >
-                          <h3 className="h-28 bg-white p-3 border-b-4 border-r-4 border-black text-xl font-bold pr-12">
+                          <h3 className="h-28 bg-white p-3 text-xl font-bold pr-12">
                             <strong>
                               {product.name} {product.date}
                             </strong>
@@ -115,7 +115,7 @@ export default function ProductLists({
                           {product.searchParam}
                         </h3>
                       </div>
-                      <p className="w-max text-lg font-medium shadow shadow-black rounded-md text-pink-200 bg-pink-800 p-3 border-2 border-black self-center">
+                      <p className="w-max text-lg font-medium shadow shadow-black text-pink-200 bg-pink-800 p-3 self-center">
                         <Price product={product} />
                       </p>
                     </div>

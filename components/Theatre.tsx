@@ -42,7 +42,7 @@ export default function Theatre({ product }: { product: Product }) {
 
   return (
     <div className="flex flex-col justify-center text-center p-6">
-      <h1 className="max-w-max mx-auto p-1 text-black font-bold bg-white border-b-4 border-r-4 border-black">
+      <h1 className="max-w-max mx-auto p-1 text-black font-bold bg-white">
         Seats Selection
       </h1>
       <div className={`${styles.theatre_layout} mx-auto`}>

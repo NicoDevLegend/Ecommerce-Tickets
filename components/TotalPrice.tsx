@@ -64,7 +64,7 @@ export default function TotalPrice() {
 
   return (
     cartProducts && (
-      <div className="mt-6 h-full border-r-8 border-b-8 border-black bg-white p-6 shadow-md md:mt-12 md:w-1/3">
+      <div className="mt-6 h-full border-r-2 border-b-2 border-black bg-white p-6 shadow-md md:mt-12 md:w-1/3">
         <div className="flex justify-between">
           <p className="text-xl font-bold">Total</p>
           <div className="">
