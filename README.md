@@ -2,6 +2,8 @@
 
 # ECOMMERCE-TICKETS
 
+![ecommerce-tickets image](assets/EcommerceTickets1.svg)
+
 LINK: [Ecommerce-Tickets-Demo](https://vigilant-yodel-q77w9qxw55gcxp4x-3000.app.github.dev/)
 
 -Creada con Next 13.
