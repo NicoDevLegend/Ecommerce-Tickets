@@ -26,12 +26,12 @@ export default function Price({
   }, [product, quantity]);
 
   if (total) {
-    return <div>{`$${price}`}</div>;
+    return <div>{`$${price.toFixed(2)}`}</div>;
   }
 
   return (
     <>
-      <span className="font-bold text-2xl">{`$${price} `}</span>
+      <span className="font-bold text-2xl">{`$${price.toFixed(2)} `}</span>
       <strong className="text-green-400">
         {product?.offer ? `-${product.offer}%` : ""}
       </strong>
